@@ -1,0 +1,28 @@
+body{
+    /* background-image: url("donut-bg.jpg"); */
+    background-image: url("donut-login-bg.jpg");
+}
+
+label{
+    color:darkkhaki;
+    font-weight: bold;
+}
+
+p{
+    color:rgb(100, 10, 10);
+    font-weight: bolder;
+}
+
+a{
+    font-weight: bolder;
+}
+
+.wrapper{
+    /* background-image: url("donut-login-bg.jpg"); */
+    background-image: url("donut-bg.jpg");
+    /* background-color: gainsboro; */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 5px 10px gray;
+    margin-top: 100px;
+}
