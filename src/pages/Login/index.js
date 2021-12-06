@@ -1,8 +1,12 @@
 import React from 'react';
+import Footer from '../../components/Footer';
+import Navbar from '../../components/Navbar';
 import "./login.css"
 
 function Login() {
     return (
+        <>
+        <Navbar />
         <div className="container">
             <div className="row">
                 <div className="col-lg-3"></div>
@@ -52,6 +56,8 @@ function Login() {
             </div>
 
         </div>
+        <Footer />
+        </>
     )
 }
 
