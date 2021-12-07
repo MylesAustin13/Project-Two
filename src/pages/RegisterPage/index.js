@@ -3,7 +3,7 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import "./register.css"
 
-function Register() {
+const Register = () => {
 
 
 

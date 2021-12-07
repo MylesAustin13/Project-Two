@@ -1,5 +1,6 @@
 import Checkout from './pages/CheckoutPage';
 import HomePage from './pages/HomePage';
+import OrderConfirm from './pages/OrderConfirm';
 import Register from './pages/RegisterPage';
 
 
@@ -11,7 +12,8 @@ function App() {
       {/* <HomePage /> */}
       
       {/* <Login /> */}
-      <Register />
+      {/* <Register /> */}
+      <OrderConfirm />
 
     </div>
   );
