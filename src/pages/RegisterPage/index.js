@@ -55,7 +55,7 @@ const Register = () => {
                                                     </div>
                                                 </div>
 
-                                                <div class="col-sm-12 pt-3 text-right">
+                                                <div className="col-sm-12 pt-3 text-right">
                                                     <p>Already registered? <a href="/login">Login</a></p>
                                                 </div>
 
@@ -90,10 +90,10 @@ const Register = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
+            {/* <Footer /> */}
         </>
 
-    )
-}
+    );
+};
 
 export default Register;
