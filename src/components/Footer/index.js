@@ -1,37 +1,55 @@
-import React from "react";
-import "./footer.css";
+import React from 'react';
+ import {
+   FaFacebook,
+   FaInstagram,
+   FaYoutube,
+   FaTwitter,
+   FaLinkedin
+ } from 'react-icons/fa'; 
+import {
+  FooterContainer,
+  FooterWrap,
+  SocialMedia,
+  SocialMediaWrap,
+  SocialLogo,
+  SocialIcons,
+  SocialIconLink
+} from './FooterElements';
 
 const Footer = () => {
-
-    return (
-        <div>
-            <footer className="my-5 pt-5 text-muted text-center text-small">
-                <nav className="navbar navbar-expand-lg navbar-warning bg-warning">
-                    <p className="mb-1">&copy; 2021 Revature</p>
-                    <ul className="list-inline">
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">
-                            Contact
-                        </a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">
-                            About
-                        </a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">
-                            Support
-                        </a>
-                    </li>
-                    </ul>
-                </nav>
-            </footer>
-
-
-
-        </div>
-    );
+  return (
+    <FooterContainer>
+      <FooterWrap>
+        <SocialMedia>
+          <SocialMediaWrap>
+            <SocialLogo to='/'>O-Donutz</SocialLogo>
+            <SocialIcons>
+              <SocialIconLink href='/' target='_blank' aria-label='Facebook'>
+                <FaFacebook />
+              </SocialIconLink>
+              <SocialIconLink href='/' target='_blank' aria-label='Instagram'>
+                <FaInstagram />
+              </SocialIconLink>
+              <SocialIconLink href='/' target='_blank' aria-label='Youtube'>
+                <FaYoutube />
+              </SocialIconLink>
+              <SocialIconLink
+                href='/'
+                target='_blank'
+                aria-label='Twitter'
+                rel=''
+              >
+                <FaTwitter />
+              </SocialIconLink>
+              <SocialIconLink href='/' target='_blank' aria-label='Linkedin'>
+                <FaLinkedin />
+              </SocialIconLink>
+            </SocialIcons>
+          </SocialMediaWrap>
+        </SocialMedia>
+      </FooterWrap>
+    </FooterContainer>
+  );
 };
 
 export default Footer;

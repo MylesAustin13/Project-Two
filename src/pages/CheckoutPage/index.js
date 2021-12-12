@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import "./checkoutform.css";
 
@@ -225,16 +226,10 @@ const Checkout = () => {
                             </form>
                         </div>
                     </div>
-                    <footer class="my-5 pt-5 text-muted text-center text-small">
-                        <p class="mb-1">&copy; 2021 Revature</p>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#">Contact</a></li>
-                            <li class="list-inline-item"><a href="#">About</a></li>
-                            <li class="list-inline-item"><a href="#">Support</a></li>
-                        </ul>
-                    </footer>
+                    
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
