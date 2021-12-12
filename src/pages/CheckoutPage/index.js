@@ -5,6 +5,17 @@ import "./checkoutform.css";
 
 const Checkout = () => {
 
+
+    const onChangeHandler = () => {
+
+    }
+    const promoCodeCheck = (event) => {
+        event.preventDefault();
+        if(event.data.value){
+            
+        }
+    }
+
     return (
         <>
             <Navbar />
@@ -56,7 +67,7 @@ const Checkout = () => {
                                 </li>
                             </ul>
 
-                            <form class="card p-2">
+                            <form onSubmit={promoCodeCheck} class="card p-2">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Promo code" />
                                     <div class="input-group-append">

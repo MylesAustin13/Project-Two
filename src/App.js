@@ -8,13 +8,12 @@ import { GlobalStyle } from "./globalStyle";
 import Footer from "./components/Footer";
 
 
-
-
 function App() {
   return (
     // <div>
     //   <Navbar />
     // </div>
+    
     <Router>
       <GlobalStyle />
       {/* <Navbar /> */}
