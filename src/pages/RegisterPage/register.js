@@ -5,17 +5,17 @@ import Footer from "../../components/Footer";
 // import Navbar from "../../components/Navbar";
 // import "./register.css"
 
-const Register = ({submitForm}) => {
+const Register = ({ submitForm }) => {
 
     const { handleChange, handleSubmit, values, errors } = useRegister(
         submitForm,
         validate
-      );
+    );
 
     return (
 
-        < div className = 'form-content-right' >
-            <form onSubmit={handleSubmit} className='form' noValidate>
+        < div className='form-content-right' >
+            <form method='post' onSubmit={handleSubmit} className='form' noValidate>
                 <h1>
                     Register Today
                 </h1>
@@ -74,8 +74,8 @@ const Register = ({submitForm}) => {
                     Already have an account? Login <a href='/login'>here</a>
                 </span>
             </form>
-          </div >
-        
+        </div >
+
 
     );
 };
