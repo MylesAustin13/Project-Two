@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import RegisterForm from "./pages/RegisterPage";
+import LoginForm from "./pages/LoginPage";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <HeadJumbo />
       <Products heading='Select Your Favorites' data={ProductData}/>
       <RegisterForm />
+      <LoginForm />
       <Footer />
     </Router>
   );

@@ -5,7 +5,7 @@ import axios from "axios";
 // import Navbar from "../../components/Navbar";
 // import "./register.css"
 
-const Register = ({ submitForm }) => {
+const Register = (props) => {
 
     // const { handleChange, handleSubmit, values, errors } = useRegister(
     //     submitForm,
@@ -16,7 +16,8 @@ const Register = ({ submitForm }) => {
         cust_last_name: '',
         cust_email: '',
         cust_password: '',
-        password2: ''
+        password2: '',
+        cust_address: ''
     });
 
     const [errors, setErrors] = useState({});
@@ -61,6 +62,10 @@ const Register = ({ submitForm }) => {
           if (!values.cust_last_name.trim()) {
             hasErrors = true;
             errors.cust_last_name = 'Last name required';
+          }
+          if(!values.cust_address.trim()){
+              hasErrors = true;
+              errors.cust_address = '';
           }
           if (!values.cust_email) {
             hasErrors = true;
@@ -156,6 +161,18 @@ const Register = ({ submitForm }) => {
                         onChange={handleChange}
                     />
                     {errors.password2 && <p>{errors.password2}</p>}
+                </div>
+                <div className='form-inputs'>
+                    <label className='form-label'>Address</label>
+                    <input
+                        className='form-input'
+                        type='text'
+                        name='cust_address'
+                        placeholder='Enter your address'
+                        value={values.cust_address}
+                        onChange={handleChange}
+                    />
+                    {errors.cust_address && <p>{errors.cust_address}</p>}
                 </div>
                 <button className='form-input-btn' type='submit'>
                     Sign up
