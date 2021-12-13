@@ -41,7 +41,7 @@ const Login = (props) => {
                 })
                 .catch(error => console.error(error))
         }
-    };
+    }
 
     const validateLogin = () => {
         let hasErrors = false;

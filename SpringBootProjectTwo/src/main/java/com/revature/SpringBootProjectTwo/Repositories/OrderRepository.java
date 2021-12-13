@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    @Query("select o from Order o where o.buyer = ?1")
+    @Query("select o from Order o where o.buyer.cust_id = ?1")
     public List<Order> findOrdersByOwner(long id);
 }

@@ -35,17 +35,17 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public long checkCustomerCredentials(String email_attempt, String password_attempt) {
+    public Customer checkCustomerCredentials(String email_attempt, String password_attempt) {
         Customer user = custRepository.findByEmail(email_attempt);
         if(user == null){
-            return -1; //Email is NOT in the table, don't bother looking for password since it'll be wrong
+            return null; //Email is NOT in the table, don't bother looking for password since it'll be wrong
         }
         else{
             if(user.getCust_password().equals(password_attempt)){
-                return user.getCust_id(); //Email matches the password! This user is right.
+                return user; //Email matches the password! This user is right.
             }
             else{
-                return -1; //Email is in table, but password was wrong. Login failed.
+                return null; //Email is in table, but password was wrong. Login failed.
             }
         }
     }

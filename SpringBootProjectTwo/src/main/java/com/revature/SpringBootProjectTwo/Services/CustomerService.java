@@ -11,7 +11,7 @@ public interface CustomerService{
     public List<Customer> getAllCustomers();
     public Customer getCustomerById(long id);
     public Customer getCustomerByEmail(String email);
-    public long checkCustomerCredentials(String email_attempt, String password_attempt); //Return -1 if login fails, return customer id if successful
+    public Customer checkCustomerCredentials(String email_attempt, String password_attempt); //Return null if login fails, return customer if successful
     public void updateCustomer(Customer upd_cust);
     public void deleteCustomer(long id);
 

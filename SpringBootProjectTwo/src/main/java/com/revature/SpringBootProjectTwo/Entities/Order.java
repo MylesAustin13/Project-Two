@@ -1,5 +1,7 @@
 package com.revature.SpringBootProjectTwo.Entities;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,8 +12,12 @@ import java.util.List;
 @Data
 @Builder
 @ToString
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "$$_hibernate_interceptor"})
 @Table(name = "orders")
 public class Order {
     @Id
@@ -20,13 +26,14 @@ public class Order {
 
     private Date submission_date;
 
-    @ManyToOne(targetEntity = Order.class, cascade = CascadeType.ALL) //VERIFY THIS, TRY OUT OneToOne if needed
+    @ManyToOne(cascade = CascadeType.MERGE) //VERIFY THIS, TRY OUT OneToOne if needed
     @JoinColumn(name = "buyer_id")
     private Customer buyer;
 
-    @OneToMany(targetEntity = Order.class, cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinColumn(name = "donuts_ordered")
     private List<Donut> donuts_ordered;
-    //private double total_price; SKIPPING THIS FOR POTENTIAL EFFICIENCY
+
+
 
 }

@@ -1,5 +1,7 @@
 package com.revature.SpringBootProjectTwo.Entities;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,6 +12,10 @@ import java.util.List;
 @Data
 @Builder
 @ToString
+@Getter
+@Setter
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "customers",
@@ -34,4 +40,5 @@ public class Customer {
     @OneToMany(targetEntity = Customer.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "favorites")
     private List<Donut> favorites;
+
 }

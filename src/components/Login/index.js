@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Login = (props) => {
 
@@ -10,7 +11,7 @@ const Login = (props) => {
         cust_password: ''
     });
     const [errors, setErrors] = useState({});
-
+    const dispatch = useDispatch();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -34,14 +35,18 @@ const Login = (props) => {
         if (errorsExist === false) { //If no errors
             axios.post(`http://localhost:8080/customers/login/${values.cust_email}/${values.cust_password}`, values)
                 .then(resp => {
-                    console.log(resp.data)
-                    if (resp.data !== -1) {
+                    console.log(resp)
+                    if (resp.data !== "") { // "" means the customer is null
+                        dispatch({
+                            type: "LogIn",
+                            cust_details: resp.data
+                        });
                         setSubmitted();
                     }
                 })
                 .catch(error => console.error(error))
         }
-    };
+    }
 
     const validateLogin = () => {
         let hasErrors = false;

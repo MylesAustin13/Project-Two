@@ -9,6 +9,8 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import RegisterForm from "./pages/RegisterPage";
 import LoginForm from "./pages/LoginPage";
+import Checkout from "./pages/CheckoutPage";
+import OrderConfirm from "./pages/OrderConfirm";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
       <Products heading='Select Your Favorites' data={ProductData}/>
       <RegisterForm />
       <LoginForm />
+      {/* <OrderConfirm /> */}
+      <Checkout />
       <Footer />
     </Router>
   );

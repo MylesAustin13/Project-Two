@@ -15,16 +15,19 @@ public class OrderController {
 
     @PostMapping("/orders")
     public Order addNewOrder(@RequestBody Order order){
+        System.out.println(order);
         return orderService.addOrder(order);
     }
 
     @GetMapping("/orders/{id}")
     public Order getSpecificOrderById(@PathVariable("id") long id){
+        System.out.println(orderService.getOrderById(id));
         return orderService.getOrderById(id);
     }
 
     @GetMapping("/orders/owner/{ownerid}")
     public List<Order> getSpecificOrdersByOwner(@PathVariable("ownerid") long ownerid){
+        System.out.println(orderService.getAllOrdersByOwner(ownerid));
         return orderService.getAllOrdersByOwner(ownerid);
     }
 

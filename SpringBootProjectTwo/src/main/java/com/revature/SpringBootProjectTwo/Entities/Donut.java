@@ -1,6 +1,7 @@
 package com.revature.SpringBootProjectTwo.Entities;
 
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,6 +10,9 @@ import javax.persistence.*;
 @Data
 @Builder
 @ToString
+@Getter
+@Setter
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "donuts")
@@ -20,4 +24,7 @@ public class Donut {
     private String donut_description;
     private double donut_price;
     private String donut_img; // Image URL
+
+
+
 }

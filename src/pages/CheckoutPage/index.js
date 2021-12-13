@@ -2,23 +2,43 @@ import React from "react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import "./checkoutform.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const Checkout = () => {
 
+    const myCart = useSelector(state => state.cartContent);
+    const dispatch = useDispatch();
+
+    const calculateTotal = () => { //Get the price of the cart's contents
+        let sum = 0;
+        for (let i = 0; i < myCart.length; i++) {
+            sum += myCart[i].info.donut_price * myCart[i].count;
+        }
+        return sum;
+    }
+    const promoCodeCheck = (event) => {
+        event.preventDefault();
+        if (event.data.value) {
+
+        }
+    }
 
     const onChangeHandler = () => {
 
     }
-    const promoCodeCheck = (event) => {
+
+    const onSubmitHandler = (event) => {
         event.preventDefault();
-        if(event.data.value){
-            
-        }
+        dispatch({
+            type: "SubmitOrder"
+        })
     }
+
+
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <div>
                 <div className="container">
                     <div className="py-5 text-center">
@@ -30,55 +50,47 @@ const Checkout = () => {
                         <div class="col-md-4 order-md-2 mb-4">
                             <h4 class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="text-muted">Your cart</span>
-                                <span class="badge badge-secondary badge-pill">3</span>
+                                <span class="badge badge-secondary badge-pill">{myCart.length}</span>
                             </h4>
                             <ul class="list-group mb-3">
-                                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                {myCart.length > 0 ? myCart.map((item) =>
+
+                                (<li class="list-group-item d-flex justify-content-between lh-condensed">
                                     <div>
-                                        <h6 class="my-0">Donut Name</h6>
-                                        <small class="text-muted">Brief description</small>
+                                        <h6 class="my-0">{item.info.donut_name} x{item.count}</h6>
+                                        <small class="text-muted">{item.info.donut_description}</small>
                                     </div>
-                                    <span class="text-muted">$12</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div>
-                                        <h6 class="my-0">Donut Name</h6>
-                                        <small class="text-muted">Brief description</small>
-                                    </div>
-                                    <span class="text-muted">$8</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div>
-                                        <h6 class="my-0">Donut</h6>
-                                        <small class="text-muted">Brief description</small>
-                                    </div>
-                                    <span class="text-muted">$5</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between bg-light">
+                                    <span class="text-muted">${item.info.donut_price * item.count}</span>
+                                </li>))
+                                    :
+                                    ""}
+
+                                {/* <li class="list-group-item d-flex justify-content-between bg-light">
                                     <div class="text-success">
                                         <h6 class="my-0">Promo code</h6>
                                         <small>EXAMPLECODE</small>
                                     </div>
                                     <span class="text-success">-$5</span>
-                                </li>
+                                </li> */}
                                 <li class="list-group-item d-flex justify-content-between">
                                     <span>Total (USD)</span>
-                                    <strong>$20</strong>
+                                    <strong>${calculateTotal()}</strong>
                                 </li>
                             </ul>
 
-                            <form onSubmit={promoCodeCheck} class="card p-2">
+                            {/* <form onSubmit={promoCodeCheck} class="card p-2">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Promo code" />
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-secondary">Redeem</button>
                                     </div>
                                 </div>
-                            </form>
+                            </form> */}
                         </div>
                         <div class="col-md-8 order-md-1">
-                            <h4 class="mb-3">Billing address</h4>
-                            <form class="needs-validation" novalidate>
+
+                            <form class="needs-validation" onSubmit={onSubmitHandler} novalidate>
+                                {/* <h4 class="mb-3">Billing address</h4>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="firstName">First name</label>
@@ -107,9 +119,9 @@ const Checkout = () => {
                                             Your username is required.
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div class="mb-3">
+                                {/* <div class="mb-3">
                                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
                                     <input type="email" class="form-control" id="email" placeholder="you@example.com" />
                                     <div class="invalid-feedback">
@@ -160,8 +172,8 @@ const Checkout = () => {
                                             Zip code required.
                                         </div>
                                     </div>
-                                </div>
-                                <hr class="mb-4" />
+                                </div> */}
+                                {/* <hr class="mb-4" />
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="same-address" />
                                     <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
@@ -170,7 +182,7 @@ const Checkout = () => {
                                     <input type="checkbox" class="custom-control-input" id="save-info" />
                                     <label class="custom-control-label" for="save-info">Save this information for next time</label>
                                 </div>
-                                <hr class="mb-4" />
+                                <hr class="mb-4" /> */}
 
                                 <h4 class="mb-3">Payment</h4>
 
@@ -226,7 +238,7 @@ const Checkout = () => {
                             </form>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <Footer />

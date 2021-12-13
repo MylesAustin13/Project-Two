@@ -30,7 +30,7 @@ public class CustomerController {
     }
 
     @PostMapping("/customers/login/{email}/{password}")
-    public long checkCustomerLogin(@PathVariable("email") String email, @PathVariable("password") String password){
+    public Customer checkCustomerLogin(@PathVariable("email") String email, @PathVariable("password") String password){
         return custService.checkCustomerCredentials(email, password);
     }
 }

@@ -53,9 +53,9 @@ const OrderConfirm = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+           
         </>
     );
 };
 
-export default OrderConfirm
+export default OrderConfirm;
