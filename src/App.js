@@ -20,8 +20,8 @@ function App() {
     //   <Navbar />
     // </div>
     <>
-    <Navbar />
-    <Sidebar />
+   <Navbar />
+    
     <Routes>
         
         <Route path="/" element={<HeadJumbo/>} exact/>

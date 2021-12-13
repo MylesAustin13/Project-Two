@@ -36,7 +36,7 @@ const Products = ({ heading, data }) => {
     return (
         <ProductsContainer>
             <button onClick={testDB}> TEST THE DB</button>
-            <ProductsHeading>{heading}</ProductsHeading>
+            {/* <ProductsHeading>{heading}</ProductsHeading> */}
             <div className="wrapper">
                             {/* {console.log(myCart)} */}
                             <ul>

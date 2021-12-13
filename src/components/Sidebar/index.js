@@ -10,16 +10,16 @@ const Sidebar =({isOpen, toggle})=>{
       </Icon>
       <SidebarMenu>
           <div className="row">
-        <SidebarLink to='/'>Login</SidebarLink>
+        <SidebarLink to='/login'>Login</SidebarLink>
         <p>or</p>
-        <SidebarLink to='/'>Sign up</SidebarLink>
+        <SidebarLink to='/register'>Sign up</SidebarLink>
         </div>
-        <SidebarLink to='/'>Donuts</SidebarLink>
+        <SidebarLink to='/products'>Donuts</SidebarLink>
         <SidebarLink to='/'>Favorites</SidebarLink>
-        <SidebarLink to='/'>Location</SidebarLink>
+        {/* <SidebarLink to='/'>Location</SidebarLink> */}
       </SidebarMenu>
       <SideButton>
-        <SidebarRoute to='/'>Order now</SidebarRoute>
+        <SidebarRoute to='/checkout'>Order now</SidebarRoute>
       </SideButton>
     </SidebarContainer>
     );

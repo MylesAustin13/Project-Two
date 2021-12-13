@@ -60,13 +60,15 @@ const Product = (props) => {
                         <input value={itemCount} readOnly />
                         <button className="btn btn-success" onClick={addCount}>+</button>
                     </div>
-                    <ProductButton>
+                    {/* <ProductButton> */}
                         <button className="btn btn-primary btn-block" onClick={addToCartHandler}>Add Donut to Cart</button>
-                    </ProductButton>
+                    {/* </ProductButton> */}
                     {
                          myCart.filter(item => item.info.donut_name === props.data.donut_name).length > 0 ?
 
-                         <ProductButton><button className="btn btn-warning btn-block" onClick={removeFromCartHandler}>Remove Donut from Cart</button></ProductButton>
+                        //  <ProductButton>
+                             <button className="btn btn-warning btn-block" onClick={removeFromCartHandler}>Remove Donut from Cart</button>
+                             /* </ProductButton> */
 
                             :
 
