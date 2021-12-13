@@ -1,8 +1,8 @@
 section{
     /* background-color: #eee; */
-    font-family: 'Montserrat Alternates', sans-serif;
+    /* font-family: 'Montserrat Alternates', sans-serif; */
     
-    /* background-color: #fff;   */
+    background-color: rgb(102, 15, 15);  
 }
 
 .card{
