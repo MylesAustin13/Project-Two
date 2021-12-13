@@ -13,7 +13,7 @@ function Login() {
                 <div className="col-lg-6">
 
                     <div className="wrapper">
-                        <form method="" id="login" autocomplete="off" onSubmit={""}>
+                        <form method="post" id="login" autocomplete="off" onSubmit={""}>
 
                             <div className="form-group">
                                 <label htmlFor="">E-Mail Address</label>
