@@ -11,6 +11,7 @@ import Sidebar from "./components/Sidebar";
 import Register from "./pages/RegisterPage/Register";
 import RegisterForm from "./pages/RegisterPage";
 import LoginForm from "./pages/Login";
+import Checkout from "./pages/CheckoutPage";
 
 
 function App() {
@@ -24,9 +25,10 @@ function App() {
       
       
       <HeadJumbo />
-      <Products heading='Select Your Favorites' data={ProductData}/>
+      <Checkout />
+      {/* <Products heading='Select Your Favorites' data={ProductData}/>
       <RegisterForm />
-      <LoginForm />
+      <LoginForm /> */}
       
       <Footer />
     </Router>
