@@ -42,6 +42,7 @@ const Product = (props) => {
         //console.log("Dispatching!");
     }
 
+    
 
 
     return (
