@@ -1,5 +1,9 @@
 body{
-    background-image: url('donut-3.jpg');
+  background-image: url('donut-3.jpg');
+  background-position: center;
+  background-size: cover;    
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
 }
 .form-container {
     margin: 100px auto;

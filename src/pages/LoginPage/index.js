@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD:src/pages/LoginPage/index.js
-import './login.css';
-// import Login from '../../components/Login';
-=======
 import './index.css';
 import Login from '../../components/Login';
->>>>>>> origin/myles-backend:src/pages/Login/index.js
 import LoginSuccess from '../../components/LoginSuccess';
+import Navbar from '../../components/Navbar';
 
 const LoginForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -16,17 +12,14 @@ const LoginForm = () => {
   }
   return (
     <>
+    <Navbar />
       <div className='form-container'>
         <span className='close-btn'>×</span>
         <div className='form-content-left'>
-          <img className='form-img' src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.misskatecuttables.com%2Fuploads%2Fshopping_cart%2F10600%2Flarge_donut.png&f=1&nofb=1' alt='donut' />
+          <img className='form-img' src='https://images.vexels.com/media/users/3/190524/isolated/lists/4c56dddeffbb64257bb0ab0ffc334e1a-kawaii-donut.png' alt='donut' />
         </div>
         {!isSubmitted ? (
-<<<<<<< HEAD:src/pages/LoginPage/index.js
-          <LoginForm setSub={submitForm}/>
-=======
           <Login setSub={submitForm}/>
->>>>>>> origin/myles-backend:src/pages/Login/index.js
         ) : (
           <LoginSuccess />
         )}

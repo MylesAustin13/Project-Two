@@ -65,10 +65,6 @@ const Product = (props) => {
                     {/* </ProductButton> */}
                     {
                          myCart.filter(item => item.info.donut_name === props.data.donut_name).length > 0 ?
-<<<<<<< HEAD
-                        //  myCart.filter(item => item.info.name === props.data.name).length > 0 ?
-=======
->>>>>>> origin/myles-backend
 
                         //  <ProductButton>
                              <button className="btn btn-warning btn-block" onClick={removeFromCartHandler}>Remove Donut from Cart</button>

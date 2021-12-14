@@ -63,12 +63,9 @@ const OrderConfirm = () => {
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
             <Footer />
 
-=======
            
->>>>>>> origin/myles-backend
         </>
     );
 };

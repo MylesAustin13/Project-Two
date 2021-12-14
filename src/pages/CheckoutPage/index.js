@@ -38,7 +38,7 @@ const Checkout = () => {
 
     return (
         <>
-            {/* <Navbar /> */}
+            <Navbar />
             <div>
                 <div className="container">
                     <div className="py-5 text-center">
@@ -46,7 +46,6 @@ const Checkout = () => {
                         <h2>Checkout form</h2>
                         <p className="lead">Please fill out your details below.</p>
                     </div>
-<<<<<<< HEAD
                     <div className="row">
                         <div className="col-md-4 order-md-2 mb-4">
                             <h4 className="d-flex justify-content-between align-items-center mb-3">
@@ -62,28 +61,10 @@ const Checkout = () => {
                                         <small className="text-muted">{item.info.donut_description}</small>
                                     </div>
                                     <span className="text-muted">${item.info.donut_price * item.count}</span>
-=======
-                    <div class="row">
-                        <div class="col-md-4 order-md-2 mb-4">
-                            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="text-muted">Your cart</span>
-                                <span class="badge badge-secondary badge-pill">{myCart.length}</span>
-                            </h4>
-                            <ul class="list-group mb-3">
-                                {myCart.length > 0 ? myCart.map((item) =>
-
-                                (<li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div>
-                                        <h6 class="my-0">{item.info.donut_name} x{item.count}</h6>
-                                        <small class="text-muted">{item.info.donut_description}</small>
-                                    </div>
-                                    <span class="text-muted">${item.info.donut_price * item.count}</span>
->>>>>>> origin/myles-backend
                                 </li>))
                                     :
                                     ""}
 
-<<<<<<< HEAD
                                 {/* <li className="list-group-item d-flex justify-content-between bg-light">
                                     <div className="text-success">
                                         <h6 className="my-0">Promo code</h6>
@@ -92,53 +73,26 @@ const Checkout = () => {
                                     <span className="text-success">-$5</span>
                                 </li> */}
                                 <li className="list-group-item d-flex justify-content-between">
-=======
-                                {/* <li class="list-group-item d-flex justify-content-between bg-light">
-                                    <div class="text-success">
-                                        <h6 class="my-0">Promo code</h6>
-                                        <small>EXAMPLECODE</small>
-                                    </div>
-                                    <span class="text-success">-$5</span>
-                                </li> */}
-                                <li class="list-group-item d-flex justify-content-between">
->>>>>>> origin/myles-backend
                                     <span>Total (USD)</span>
                                     <strong>${calculateTotal()}</strong>
                                 </li>
                             </ul>
 
-<<<<<<< HEAD
                             {/* <form onSubmit={promoCodeCheck} className="card p-2">
                                 <div className="input-group">
                                     <input type="text" className="form-control" placeholder="Promo code" />
                                     <div className="input-group-append">
                                         <button type="submit" className="btn btn-secondary">Redeem</button>
-=======
-                            {/* <form onSubmit={promoCodeCheck} class="card p-2">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Promo code" />
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-secondary">Redeem</button>
->>>>>>> origin/myles-backend
                                     </div>
                                 </div>
                             </form> */}
                         </div>
-<<<<<<< HEAD
                         <div className="col-md-8 order-md-1">
 
                             <form className="needs-validation" onSubmit={onSubmitHandler} novalidate>
                                 {/* <h4 className="mb-3">Billing address</h4>
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
-=======
-                        <div class="col-md-8 order-md-1">
-
-                            <form class="needs-validation" onSubmit={onSubmitHandler} novalidate>
-                                {/* <h4 class="mb-3">Billing address</h4>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
->>>>>>> origin/myles-backend
                                         <label for="firstName">First name</label>
                                         <input type="text" className="form-control" id="firstName" placeholder="" value="" required />
                                         <div className="invalid-feedback">
@@ -166,17 +120,10 @@ const Checkout = () => {
                                     </div>
                                 </div> */}
 
-<<<<<<< HEAD
                                 {/* <div className="mb-3">
                                     <label for="email">Email <span className="text-muted">(Optional)</span></label>
                                     <input type="email" className="form-control" id="email" placeholder="you@example.com" />
                                     <div className="invalid-feedback">
-=======
-                                {/* <div class="mb-3">
-                                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                                    <input type="email" class="form-control" id="email" placeholder="you@example.com" />
-                                    <div class="invalid-feedback">
->>>>>>> origin/myles-backend
                                         Please enter a valid email address for shipping updates.
                                     </div>
                                 </div>
@@ -222,7 +169,6 @@ const Checkout = () => {
                                         </div>
                                     </div>
                                 </div> */}
-<<<<<<< HEAD
                                 {/* <hr className="mb-4" />
                                 <div className="custom-control custom-checkbox">
                                     <input type="checkbox" className="custom-control-input" id="same-address" />
@@ -233,18 +179,6 @@ const Checkout = () => {
                                     <label className="custom-control-label" for="save-info">Save this information for next time</label>
                                 </div>
                                 <hr className="mb-4" /> */}
-=======
-                                {/* <hr class="mb-4" />
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="same-address" />
-                                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="save-info" />
-                                    <label class="custom-control-label" for="save-info">Save this information for next time</label>
-                                </div>
-                                <hr class="mb-4" /> */}
->>>>>>> origin/myles-backend
 
                                 <h4 className="mb-3">Payment</h4>
 
@@ -303,7 +237,7 @@ const Checkout = () => {
 
                 </div>
             </div>
-            {/* <Footer /> */}
+             <Footer /> 
         </>
     )
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './index.css';
 import Register from '../../components/Register';
 import RegisterSuccess from '../../components/RegisterSuccess';
+import Navbar from '../../components/Navbar';
 
 const RegisterForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -12,6 +13,7 @@ const RegisterForm = () => {
   }
   return (
     <>
+    <Navbar />
       <div className='form-container'>
       {/* <span className='close-btn'>×</span> */}
         <span className='close-btn'>

@@ -223,3 +223,10 @@
 #progressbar li.active:after {
     background: rgb(252, 103, 49)
 }
+
+body{background-image: url('donut-3.jpg');
+    background-position: center;
+    background-size: cover;    
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+}

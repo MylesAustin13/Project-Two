@@ -3,15 +3,20 @@ import { NavLink as Link } from 'react-router-dom';
 import { CgMenu } from 'react-icons/cg';
 
 export const Nav = styled.nav`
-  background: #493332;
+  background: #7f7053;
+  opacity: 0.8;
   height: 80px;
   display: flex;
   justify-content: center;
   font-weight: 700;
+  position: fixed; 
+  top: 0; 
+  width: 100%;   
 `;
 
 export const NavLink = styled(Link)`
   color: #fff;
+  
   font-size: 2rem;
   display: flex;
   align-items: center;
@@ -34,7 +39,7 @@ export const NavIcon = styled.div`
   color: #fff;
   p {
     transform: translate(-175%, 100%);
-    font-weight: bold;
+    font-weight: bolder;
   }
 `;
 
