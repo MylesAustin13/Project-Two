@@ -3,11 +3,13 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import "./checkoutform.css";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
 
     const myCart = useSelector(state => state.cartContent);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const calculateTotal = () => { //Get the price of the cart's contents
         let sum = 0;
@@ -32,6 +34,7 @@ const Checkout = () => {
         dispatch({
             type: "SubmitOrder"
         })
+        navigate("/myorders");
     }
 
 
@@ -60,7 +63,7 @@ const Checkout = () => {
                                         <h6 class="my-0">{item.info.donut_name} x{item.count}</h6>
                                         <small class="text-muted">{item.info.donut_description}</small>
                                     </div>
-                                    <span class="text-muted">${item.info.donut_price * item.count}</span>
+                                    <span class="text-muted">${(item.info.donut_price * item.count).toFixed(2)}</span>
                                 </li>))
                                     :
                                     ""}

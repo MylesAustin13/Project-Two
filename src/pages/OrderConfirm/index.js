@@ -4,11 +4,11 @@ import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import "./orderconfirm.css"
 
-const OrderConfirm = () => {
+const OrderConfirm = (props) => {
     return (
         <>
             {/* <Header /> */}
-            <Navbar />
+            {/* <Navbar /> */}
             <div>
                 <div className="card">
                     <div className="title">Thank You for Your Order</div>

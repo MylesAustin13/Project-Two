@@ -1,30 +1,26 @@
-import {
-    ProductsContainer, ProductsHeading, ProductWrapper, ProductCard, ProductImg, ProductInfo,
-    ProductName, ProductDesc, ProductPrice, ProductButton
-} from './ProductsElements';
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Product from './Product';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Order from "./Order";
 
 
-const Products = ({ heading, data }) => {
-    const [donuts, setDonuts] = useState([]);
+const Orders = () => {
+    const [orders, setOrders] = useState([]);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const myCart = useSelector(state => state.cartContent);
+    const currentUser = useSelector(state => state.currentCust);
     const amILoggedIn = useSelector(state => state.loggedIn);
 
     useEffect(() => {
         //Get all the donuts
 
         if (amILoggedIn) {
-            axios.get("http://localhost:8080/donuts")
+            axios.get(`http://localhost:8080/orders/owner/${currentUser.cust_id}`)
                 .then((resp) => {
-                    setDonuts(resp.data);
+                    setOrders(resp.data);
                 })
                 .catch((error) => {
                     console.error(error);
@@ -51,29 +47,22 @@ const Products = ({ heading, data }) => {
         })
     }
     return (
-        <ProductsContainer>
+        <div>
             <button onClick={testDB}> TEST THE DB</button>
             <button onClick={testState}> TEST THE STATE</button>
-            <ProductsHeading>{heading}</ProductsHeading>
-            <div className="wrapper">
-                {/* {console.log(myCart)} */}
-                <ul>
-
-                    {myCart.length > 0 ? myCart.map(item => <li>{item.info.donut_name} x{item.count}</li>) : ""}
-                </ul>
-            </div>
-            <ProductWrapper>
-                {donuts.map((product, index) => {
+            
+            <div>
+                {orders.map((myorder) => {
                     return (
                         <>
-                            <Product data={product} ind={index} />
+                            <Order data={myorder} />
 
 
                         </>);
                 })}
-            </ProductWrapper>
-        </ProductsContainer>
+            </div>
+        </div>
     );
 };
 
-export default Products;
+export default Orders;

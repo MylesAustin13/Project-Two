@@ -12,6 +12,7 @@ import LoginForm from "./pages/LoginPage";
 import Checkout from "./pages/CheckoutPage";
 import OrderConfirm from "./pages/OrderConfirm";
 import Product from "./components/Products/Product";
+import OrdersPage from "./pages/OrdersPage";
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/orderconfirmation" element={<OrderConfirm/>} />
         <Route path="/products" element={<Products />} />
+        <Route path="/myorders" element={<OrdersPage />} />
+        
         <Route element={<Footer />} />
         
     </Routes>

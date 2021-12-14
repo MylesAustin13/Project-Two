@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import Sidebar from '../Sidebar';
 import { Nav, NavLink, NavIcon, Bars } from './NavbarElements';
 
+
 const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
-  
+
+
+
     const toggle = () => {
       setIsOpen(!isOpen);
    };

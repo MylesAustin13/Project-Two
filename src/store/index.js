@@ -3,6 +3,7 @@ import { createStore } from "redux";
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from "redux-persist/lib/storage"
 
+
 //Initial State
 const initialState = {
     loggedIn: false,
@@ -15,13 +16,13 @@ const initialState = {
 
 //Reducer Function
 const donutReducer = (state = initialState, action) => {
-
     switch (action.type) {
         case "TestState":
             console.log(state);
             break;
         case "LogIn":
-            console.log(action);
+            //console.log(action);
+            
             return {
                 ...state,
                 loggedIn: true,
