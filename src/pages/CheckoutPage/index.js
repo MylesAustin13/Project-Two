@@ -2,23 +2,43 @@ import React from "react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import "./checkoutform.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const Checkout = () => {
 
+    const myCart = useSelector(state => state.cartContent);
+    const dispatch = useDispatch();
+
+    const calculateTotal = () => { //Get the price of the cart's contents
+        let sum = 0;
+        for (let i = 0; i < myCart.length; i++) {
+            sum += myCart[i].info.donut_price * myCart[i].count;
+        }
+        return sum;
+    }
+    const promoCodeCheck = (event) => {
+        event.preventDefault();
+        if (event.data.value) {
+
+        }
+    }
 
     const onChangeHandler = () => {
 
     }
-    const promoCodeCheck = (event) => {
+
+    const onSubmitHandler = (event) => {
         event.preventDefault();
-        if(event.data.value){
-            
-        }
+        dispatch({
+            type: "SubmitOrder"
+        })
     }
+
+
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <div>
                 <div className="container">
                     <div className="py-5 text-center">
@@ -26,210 +46,198 @@ const Checkout = () => {
                         <h2>Checkout form</h2>
                         <p className="lead">Please fill out your details below.</p>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4 order-md-2 mb-4">
-                            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="text-muted">Your cart</span>
-                                <span class="badge badge-secondary badge-pill">3</span>
+                    <div className="row">
+                        <div className="col-md-4 order-md-2 mb-4">
+                            <h4 className="d-flex justify-content-between align-items-center mb-3">
+                                <span className="text-muted">Your cart</span>
+                                <span className="badge badge-secondary badge-pill">{myCart.length}</span>
                             </h4>
-                            <ul class="list-group mb-3">
-                                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <ul className="list-group mb-3">
+                                {myCart.length > 0 ? myCart.map((item) =>
+
+                                (<li className="list-group-item d-flex justify-content-between lh-condensed">
                                     <div>
-                                        <h6 class="my-0">Donut Name</h6>
-                                        <small class="text-muted">Brief description</small>
+                                        <h6 className="my-0">{item.info.donut_name} x{item.count}</h6>
+                                        <small className="text-muted">{item.info.donut_description}</small>
                                     </div>
-                                    <span class="text-muted">$12</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div>
-                                        <h6 class="my-0">Donut Name</h6>
-                                        <small class="text-muted">Brief description</small>
-                                    </div>
-                                    <span class="text-muted">$8</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div>
-                                        <h6 class="my-0">Donut</h6>
-                                        <small class="text-muted">Brief description</small>
-                                    </div>
-                                    <span class="text-muted">$5</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between bg-light">
-                                    <div class="text-success">
-                                        <h6 class="my-0">Promo code</h6>
+                                    <span className="text-muted">${item.info.donut_price * item.count}</span>
+                                </li>))
+                                    :
+                                    ""}
+
+                                {/* <li className="list-group-item d-flex justify-content-between bg-light">
+                                    <div className="text-success">
+                                        <h6 className="my-0">Promo code</h6>
                                         <small>EXAMPLECODE</small>
                                     </div>
-                                    <span class="text-success">-$5</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
+                                    <span className="text-success">-$5</span>
+                                </li> */}
+                                <li className="list-group-item d-flex justify-content-between">
                                     <span>Total (USD)</span>
-                                    <strong>$20</strong>
+                                    <strong>${calculateTotal()}</strong>
                                 </li>
                             </ul>
 
-                            <form onSubmit={promoCodeCheck} class="card p-2">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Promo code" />
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-secondary">Redeem</button>
+                            {/* <form onSubmit={promoCodeCheck} className="card p-2">
+                                <div className="input-group">
+                                    <input type="text" className="form-control" placeholder="Promo code" />
+                                    <div className="input-group-append">
+                                        <button type="submit" className="btn btn-secondary">Redeem</button>
                                     </div>
                                 </div>
-                            </form>
+                            </form> */}
                         </div>
-                        <div class="col-md-8 order-md-1">
-                            <h4 class="mb-3">Billing address</h4>
-                            <form class="needs-validation" novalidate>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
+                        <div className="col-md-8 order-md-1">
+
+                            <form className="needs-validation" onSubmit={onSubmitHandler} novalidate>
+                                {/* <h4 className="mb-3">Billing address</h4>
+                                <div className="row">
+                                    <div className="col-md-6 mb-3">
                                         <label for="firstName">First name</label>
-                                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required />
-                                        <div class="invalid-feedback">
+                                        <input type="text" className="form-control" id="firstName" placeholder="" value="" required />
+                                        <div className="invalid-feedback">
                                             Valid first name is required.
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <div className="col-md-6 mb-3">
                                         <label for="lastName">Last name</label>
-                                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required />
-                                        <div class="invalid-feedback">
+                                        <input type="text" className="form-control" id="lastName" placeholder="" value="" required />
+                                        <div className="invalid-feedback">
                                             Valid last name is required.
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="mb-3">
+                                <div className="mb-3">
                                     <label for="username">Username</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">@</span>
+                                    <div className="input-group">
+                                        <div className="input-group-prepend">
+                                            <span className="input-group-text">@</span>
                                         </div>
-                                        <input type="text" class="form-control" id="username" placeholder="Username" required />
-                                        <div class="invalid-feedback" >
+                                        <input type="text" className="form-control" id="username" placeholder="Username" required />
+                                        <div className="invalid-feedback" >
                                             Your username is required.
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div class="mb-3">
-                                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                                    <input type="email" class="form-control" id="email" placeholder="you@example.com" />
-                                    <div class="invalid-feedback">
+                                {/* <div className="mb-3">
+                                    <label for="email">Email <span className="text-muted">(Optional)</span></label>
+                                    <input type="email" className="form-control" id="email" placeholder="you@example.com" />
+                                    <div className="invalid-feedback">
                                         Please enter a valid email address for shipping updates.
                                     </div>
                                 </div>
-
-                                <div class="mb-3">
+                                <div className="mb-3">
                                     <label for="address">Address</label>
-                                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required />
-                                    <div class="invalid-feedback">
+                                    <input type="text" className="form-control" id="address" placeholder="1234 Main St" required />
+                                    <div className="invalid-feedback">
                                         Please enter your shipping address.
                                     </div>
                                 </div>
-
-                                <div class="mb-3">
-                                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" />
+                                <div className="mb-3">
+                                    <label for="address2">Address 2 <span className="text-muted">(Optional)</span></label>
+                                    <input type="text" className="form-control" id="address2" placeholder="Apartment or suite" />
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-md-5 mb-3">
+                                <div className="row">
+                                    <div className="col-md-5 mb-3">
                                         <label for="country">Country</label>
-                                        <select class="custom-select d-block w-100" id="country" required>
+                                        <select className="custom-select d-block w-100" id="country" required>
                                             <option value="">Choose...</option>
                                             <option>United States</option>
                                         </select>
-                                        <div class="invalid-feedback">
+                                        <div className="invalid-feedback">
                                             Please select a valid country.
                                         </div>
                                     </div>
-                                    <div class="col-md-4 mb-3">
+                                    <div className="col-md-4 mb-3">
                                         <label for="state">State</label>
-                                        <select class="custom-select d-block w-100" id="state" required>
+                                        <select className="custom-select d-block w-100" id="state" required>
                                             <option value="">Choose...</option>
                                             <option>Maryland</option>
                                             <option>New York</option>
                                             <option>New Jersey</option>
                                         </select>
-                                        <div class="invalid-feedback">
+                                        <div className="invalid-feedback">
                                             Please provide a valid state.
                                         </div>
                                     </div>
-                                    <div class="col-md-3 mb-3">
+                                    <div className="col-md-3 mb-3">
                                         <label for="zip">Zip</label>
-                                        <input type="text" class="form-control" id="zip" placeholder="" required />
-                                        <div class="invalid-feedback">
+                                        <input type="text" className="form-control" id="zip" placeholder="" required />
+                                        <div className="invalid-feedback">
                                             Zip code required.
                                         </div>
                                     </div>
+                                </div> */}
+                                {/* <hr className="mb-4" />
+                                <div className="custom-control custom-checkbox">
+                                    <input type="checkbox" className="custom-control-input" id="same-address" />
+                                    <label className="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
                                 </div>
-                                <hr class="mb-4" />
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="same-address" />
-                                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+                                <div className="custom-control custom-checkbox">
+                                    <input type="checkbox" className="custom-control-input" id="save-info" />
+                                    <label className="custom-control-label" for="save-info">Save this information for next time</label>
                                 </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="save-info" />
-                                    <label class="custom-control-label" for="save-info">Save this information for next time</label>
-                                </div>
-                                <hr class="mb-4" />
+                                <hr className="mb-4" /> */}
 
-                                <h4 class="mb-3">Payment</h4>
+                                <h4 className="mb-3">Payment</h4>
 
-                                <div class="d-block my-3">
-                                    <div class="custom-control custom-radio">
-                                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required />
-                                        <label class="custom-control-label" for="credit">Credit card</label>
+                                <div className="d-block my-3">
+                                    <div className="custom-control custom-radio">
+                                        <input id="credit" name="paymentMethod" type="radio" className="custom-control-input" checked required />
+                                        <label className="custom-control-label" for="credit">Credit card</label>
                                     </div>
-                                    <div class="custom-control custom-radio">
-                                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required />
-                                        <label class="custom-control-label" for="debit">Debit card</label>
+                                    <div className="custom-control custom-radio">
+                                        <input id="debit" name="paymentMethod" type="radio" className="custom-control-input" required />
+                                        <label className="custom-control-label" for="debit">Debit card</label>
                                     </div>
-                                    <div class="custom-control custom-radio">
-                                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required />
-                                        <label class="custom-control-label" for="paypal">Paypal</label>
+                                    <div className="custom-control custom-radio">
+                                        <input id="paypal" name="paymentMethod" type="radio" className="custom-control-input" required />
+                                        <label className="custom-control-label" for="paypal">Paypal</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
+                                <div className="row">
+                                    <div className="col-md-6 mb-3">
                                         <label for="cc-name">Name on card</label>
-                                        <input type="text" class="form-control" id="cc-name" placeholder="" required />
-                                        <small class="text-muted">Full name as displayed on card</small>
-                                        <div class="invalid-feedback">
+                                        <input type="text" className="form-control" id="cc-name" placeholder="" required />
+                                        <small className="text-muted">Full name as displayed on card</small>
+                                        <div className="invalid-feedback">
                                             Name on card is required
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <div className="col-md-6 mb-3">
                                         <label for="cc-number">Credit card number</label>
-                                        <input type="text" class="form-control" id="cc-number" placeholder="" required />
-                                        <div class="invalid-feedback">
+                                        <input type="text" className="form-control" id="cc-number" placeholder="" required />
+                                        <div className="invalid-feedback">
                                             Credit card number is required
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-3 mb-3">
+                                <div className="row">
+                                    <div className="col-md-3 mb-3">
                                         <label for="cc-expiration">Expiration</label>
-                                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required />
-                                        <div class="invalid-feedback">
+                                        <input type="text" className="form-control" id="cc-expiration" placeholder="" required />
+                                        <div className="invalid-feedback">
                                             Expiration date required
                                         </div>
                                     </div>
-                                    <div class="col-md-3 mb-3">
+                                    <div className="col-md-3 mb-3">
                                         <label for="cc-expiration">CVV</label>
-                                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required />
-                                        <div class="invalid-feedback">
+                                        <input type="text" className="form-control" id="cc-cvv" placeholder="" required />
+                                        <div className="invalid-feedback">
                                             Security code required
                                         </div>
                                     </div>
                                 </div>
-                                <hr class="mb-4" />
-                                <button class="btn btn-warning btn-lg btn-block" type="submit">Continue to checkout</button>
+                                <hr className="mb-4" />
+                                <button className="btn btn-warning btn-lg btn-block" type="submit">Continue to checkout</button>
                             </form>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }

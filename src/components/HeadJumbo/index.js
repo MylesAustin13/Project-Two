@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Navbar from '../Navbar';
 import Sidebar from '../Sidebar';
 import {HeaderContainer,HeaderContent,HeaderItems,HeaderH1,HeaderP,HeaderBtn} from './HeaderElements';
+import { Link } from 'react-router-dom';
+
 const HeadJumbo = () => {
     const [isOpen, setIsOpen] = useState(false);
   

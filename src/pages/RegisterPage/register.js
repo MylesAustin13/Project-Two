@@ -2,6 +2,7 @@ import React from "react"
 import validate from './validateRegister';
 import useRegister from './useRegister';
 import Footer from "../../components/Footer";
+import { Link } from "react-router-dom";
 // import Navbar from "../../components/Navbar";
 // import "./register.css"
 
@@ -71,7 +72,7 @@ const Register = ({ submitForm }) => {
                     Sign up
                 </button>
                 <span className='form-input-login'>
-                    Already have an account? Login <a href='/login'>here</a>
+                    Already have an account? Login <Link to ='/login'>here</Link>
                 </span>
             </form>
         </div >

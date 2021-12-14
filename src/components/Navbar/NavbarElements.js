@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
-import { GiDonut } from 'react-icons/gi';
+import { CgMenu } from 'react-icons/cg';
 
 export const Nav = styled.nav`
-  background: transparent;
+  background: #493332;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -38,7 +38,7 @@ export const NavIcon = styled.div`
   }
 `;
 
-export const Bars = styled(GiDonut)`
+export const Bars = styled(CgMenu)`
   font-size: 2rem;
   transform: translate(-50%, -15%);
 `;

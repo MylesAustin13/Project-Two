@@ -2,6 +2,7 @@ import React from "react";
 import validate from './validateLogin';
 import useLogin from './useLogin';
 import './login.css';
+import { Link } from "react-router-dom";
 
 const Login = ({ submitForm }) => {
 
@@ -47,7 +48,7 @@ const Login = ({ submitForm }) => {
                     Login
                 </button>
                 <span className='form-input-login'>
-                    Not yet Signed up? <a href='/register'>Register</a>
+                    Not yet Signed up? <Link to='/register'>Register</Link>
                 </span>
             </form>
         </div >
