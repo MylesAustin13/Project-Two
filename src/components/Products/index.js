@@ -11,7 +11,7 @@ import axios from 'axios';
 
 const Products = ({ heading, data }) => {
     const [donuts, setDonuts] = useState([]);
-    
+    const dispatch = useDispatch();
     const myCart = useSelector(state => state.cartContent);
 
 
@@ -33,10 +33,17 @@ const Products = ({ heading, data }) => {
             })
             .catch(error => console.error);
     }
+
+    const testState = () => {
+        dispatch({
+            type: "TestState"
+        })
+    }
     return (
         <ProductsContainer>
             <button onClick={testDB}> TEST THE DB</button>
-            {/* <ProductsHeading>{heading}</ProductsHeading> */}
+            <button onClick={testState}> TEST THE STATE</button>
+             <ProductsHeading>{heading}</ProductsHeading> 
             <div className="wrapper">
                             {/* {console.log(myCart)} */}
                             <ul>

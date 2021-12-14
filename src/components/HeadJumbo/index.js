@@ -3,16 +3,12 @@ import Navbar from '../Navbar';
 import Sidebar from '../Sidebar';
 import {HeaderContainer,HeaderContent,HeaderItems,HeaderH1,HeaderP,HeaderBtn} from './HeaderElements';
 const HeadJumbo = () => {
-    const [isOpen, setIsOpen] = useState(false);
-  
-    const toggle = () => {
-      setIsOpen(!isOpen);
-   };
+    
   
     return (
       <HeaderContainer>
-        <Navbar toggle={toggle} />
-        <Sidebar isOpen={isOpen} toggle={toggle} />
+        <Navbar  />
+        
         <HeaderContent>
           <HeaderItems>
             <HeaderH1>The Best Donuts Ever</HeaderH1>
