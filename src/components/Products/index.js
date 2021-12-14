@@ -6,22 +6,42 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Product from './Product';
 import axios from 'axios';
+<<<<<<< HEAD
 
 const Products = ({ heading, data }) => {
     const [donuts, setDonuts] = useState([]);
 
     const myCart = useSelector(state => state.cartContent);
 
+=======
+
+
+
+const Products = ({ heading, data }) => {
+    const [donuts, setDonuts] = useState([]);
+    
+    const myCart = useSelector(state => state.cartContent);
+
+>>>>>>> origin/myles-backend
 
     useEffect(() => {
         //Get all the donuts
         axios.get("http://localhost:8080/donuts")
+<<<<<<< HEAD
             .then((resp) => {
                 setDonuts(resp.data);
             })
             .catch((error) => {
                 console.error(error);
             })
+=======
+        .then((resp) => {
+            setDonuts(resp.data);
+        })
+        .catch((error) => {
+            console.error(error);
+        })
+>>>>>>> origin/myles-backend
     }, []);
 
     const testDB = () => {
@@ -36,12 +56,21 @@ const Products = ({ heading, data }) => {
             <button onClick={testDB}> TEST THE DB</button>
             {/* <ProductsHeading>{heading}</ProductsHeading> */}
             <div className="wrapper">
+<<<<<<< HEAD
                 {/* {console.log(myCart)} */}
                 <ul>
 
                     {myCart.length > 0 ? myCart.map(item => <li>{item.info.donut_name} x{item.count}</li>) : ""}
                 </ul>
             </div>
+=======
+                            {/* {console.log(myCart)} */}
+                            <ul>
+
+                                {myCart.length > 0 ? myCart.map(item => <li>{item.info.donut_name} x{item.count}</li>) : ""}
+                            </ul>
+                        </div>
+>>>>>>> origin/myles-backend
             <ProductWrapper>
                 {donuts.map((product, index) => {
                     return (

@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import Footer from "../../components/Footer";
 import axios from "axios";
 // import Navbar from "../../components/Navbar";
+<<<<<<< HEAD
 import "./index.css";
+=======
+// import "./register.css"
+>>>>>>> origin/myles-backend
 
 const Register = (props) => {
 

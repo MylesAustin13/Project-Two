@@ -42,17 +42,18 @@ const Product = (props) => {
         //console.log("Dispatching!");
     }
 
+    
 
 
     return (
         <>
             <ProductCard key={props.ind}>
 
-                <ProductImg src={props.data.img} alt={props.data.alt} />
+                <ProductImg src={props.data.donut_img} />
                 <ProductInfo>
-                    <ProductName>{props.data.name}</ProductName>
-                    <ProductDesc>{props.data.desc}</ProductDesc>
-                    <ProductPrice>{props.data.price}</ProductPrice>
+                    <ProductName>{props.data.donut_name}</ProductName>
+                    <ProductDesc>{props.data.donut_desc}</ProductDesc>
+                    <ProductPrice>{props.data.donut_price}</ProductPrice>
 
                     <div className="row row-cols-3 justify-content-around">
                         <button className="btn btn-danger" onClick={subCount}>-</button>
@@ -64,9 +65,14 @@ const Product = (props) => {
                     {/* </ProductButton> */}
                     {
                          myCart.filter(item => item.info.donut_name === props.data.donut_name).length > 0 ?
+<<<<<<< HEAD
                         //  myCart.filter(item => item.info.name === props.data.name).length > 0 ?
+=======
+>>>>>>> origin/myles-backend
 
-                         <ProductButton><button className="btn btn-warning btn-block" onClick={removeFromCartHandler}>Remove Donut from Cart</button></ProductButton>
+                        //  <ProductButton>
+                             <button className="btn btn-warning btn-block" onClick={removeFromCartHandler}>Remove Donut from Cart</button>
+                             /* </ProductButton> */
 
                             :
 

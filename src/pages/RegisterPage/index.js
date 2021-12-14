@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './index.css';
-import Register from './Register';
-import RegisterSuccess from './RegisterSuccess';
+import Register from '../../components/Register';
+import RegisterSuccess from '../../components/RegisterSuccess';
 
 const RegisterForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);

@@ -12,7 +12,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store} >
       <BrowserRouter>
+<<<<<<< HEAD
         <App />
+=======
+      <App />
+>>>>>>> origin/myles-backend
       </BrowserRouter>
     </ Provider>
   </React.StrictMode>,

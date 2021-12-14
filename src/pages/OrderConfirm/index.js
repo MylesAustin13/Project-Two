@@ -63,10 +63,14 @@ const OrderConfirm = () => {
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <Footer />
 
+=======
+           
+>>>>>>> origin/myles-backend
         </>
     );
 };
 
-export default OrderConfirm
+export default OrderConfirm;

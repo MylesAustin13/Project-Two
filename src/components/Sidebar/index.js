@@ -14,6 +14,7 @@ const Sidebar =({isOpen, toggle})=>{
         <p>or</p>
         <SidebarLink to='/register'>Sign up</SidebarLink>
         </div>
+<<<<<<< HEAD
         <SidebarLink to='/profile'>Profile</SidebarLink>
         {/* still to do */}
         <SidebarLink to='/products'>Donuts</SidebarLink> 
@@ -22,6 +23,14 @@ const Sidebar =({isOpen, toggle})=>{
       </SidebarMenu>
       <SideButton>
         <SidebarRoute to='/products'>Order now</SidebarRoute>
+=======
+        <SidebarLink to='/products'>Donuts</SidebarLink>
+        <SidebarLink to='/'>Favorites</SidebarLink>
+        {/* <SidebarLink to='/'>Location</SidebarLink> */}
+      </SidebarMenu>
+      <SideButton>
+        <SidebarRoute to='/checkout'>Order now</SidebarRoute>
+>>>>>>> origin/myles-backend
       </SideButton>
     </SidebarContainer>
     );
