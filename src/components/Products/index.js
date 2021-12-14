@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Products = ({ heading, data }) => {
     const [donuts, setDonuts] = useState([]);
-
+    const [searchText, setSearchText] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -50,6 +50,20 @@ const Products = ({ heading, data }) => {
             type: "TestState"
         })
     }
+
+    const onChangeHandler = (event) => { //For the search bar
+        const { name, value } = event.target;
+        setSearchText(value);
+    }
+    const onSubmitHandler = (event) => { //Change the donuts list
+        event.preventDefault();
+        axios.get(`http://localhost:8080/donuts/search/${searchText}`)
+        .then((resp) => {
+            console.log(resp.data);
+            setDonuts(resp.data);
+        })
+        .catch(error => console.error(error));
+    }
     return (
         <ProductsContainer>
             <button onClick={testDB}> TEST THE DB</button>
@@ -62,6 +76,10 @@ const Products = ({ heading, data }) => {
                     {myCart.length > 0 ? myCart.map(item => <li>{item.info.donut_name} x{item.count}</li>) : ""}
                 </ul>
             </div>
+            <form onSubmit={onSubmitHandler}>
+                <input type="text" onChange={onChangeHandler} placeholder="Search..." name="searchbar" />
+                <button type="submit">Go!</button>
+            </form>
             <ProductWrapper>
                 {donuts.map((product, index) => {
                     return (

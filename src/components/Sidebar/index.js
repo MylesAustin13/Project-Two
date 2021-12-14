@@ -31,6 +31,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                 <SidebarLink to='/products'>Donuts</SidebarLink>
                 <SidebarLink to='/'>Favorites</SidebarLink>
                 <SidebarLink to="/myorders">My Orders</SidebarLink>
+                <SidebarLink to="/myfavorites">My Favorites</SidebarLink>
                 <SideButton>
                   <SidebarRoute to='/checkout'>Order now</SidebarRoute>
                 </SideButton>
