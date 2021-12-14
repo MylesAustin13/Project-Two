@@ -42,3 +42,8 @@ export const Bars = styled(GiDonut)`
   font-size: 2rem;
   transform: translate(-50%, -15%);
 `;
+
+export const CartBars = styled(GiDonut)`
+  font-size: 2rem;
+  transform: translate(-100%, -15%);
+`;

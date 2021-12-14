@@ -1,27 +1,35 @@
 import React, { useState } from 'react';
+import Cartbar from '../Cartbar';
 import Sidebar from '../Sidebar';
-import { Nav, NavLink, NavIcon, Bars } from './NavbarElements';
+import { Nav, NavLink, NavIcon, Bars, CartBars } from './NavbarElements';
 
 
 const Navbar = () => {
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSideOpen, setIsSideOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
 
-
-    const toggle = () => {
-      setIsOpen(!isOpen);
-   };
+    const toggleCart = () => {
+      setIsCartOpen(!isCartOpen);
+   }
+   const toggleSide = () => {
+     setIsSideOpen(!isSideOpen);
+   }
 
   return (
     <>
       <Nav>
         <NavLink to='/'>O-Donutz</NavLink>
-        <NavIcon onClick={toggle}>
+        <NavIcon onClick={toggleSide}>
           <p>Menu</p>
           <Bars />
         </NavIcon>
-        <Sidebar isOpen={isOpen} toggle={toggle} />
+        <NavIcon onClick={toggleCart}>
+           <CartBars />
+        </NavIcon>
+        <Cartbar isOpen={isCartOpen} toggle={toggleCart} />
+        <Sidebar isOpen={isSideOpen} toggle={toggleSide} />
       </Nav>
     </>
   );

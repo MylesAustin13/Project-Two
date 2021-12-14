@@ -19,9 +19,9 @@ const Order = (props) => {
             counts[donut.donut_id] = (counts[donut.donut_id] || 0) + 1; //Increment the count or set it to 1
         });
         //console.log(props.data.donuts_ordered.find( ({donut_id}) => donut_id === 21))
-        for( let id in counts){ //For each donut id in the list
-            console.log(typeof(id));
-            uniqueItems.push(props.data.donuts_ordered.find( ({donut_id}) => donut_id == id)); //Add it to the list
+        for (let id in counts) { //For each donut id in the list
+            console.log(typeof (id));
+            uniqueItems.push(props.data.donuts_ordered.find(({ donut_id }) => donut_id == id)); //Add it to the list
         }
 
         //console.log(counts);
@@ -30,35 +30,49 @@ const Order = (props) => {
         setUniqueDonuts(uniqueItems);
     }, []);
 
-        const orderDate = new Date(props.data.submission_date);
+    const orderDate = new Date(props.data.submission_date);
     return (
         <>
             <div className="bg-light">
 
-               
+
                 <div>
                     <div>Order No. {props.data.order_id}</div>
                     <div>Sent to {props.data.buyer.cust_address}</div>
-                    <div>Purchased on { (orderDate.getMonth() + 1)}/{(orderDate.getDate()) }/{(orderDate.getFullYear()) } at {orderDate.getHours()}:{(orderDate.getMinutes() < 10) ? "0" + orderDate.getMinutes() : orderDate.getMinutes()  }
-                    {orderDate.getHours() < 12 ? "am" : "pm"}  
+                    <div>Purchased on {(orderDate.getMonth() + 1)}/{(orderDate.getDate())}/{(orderDate.getFullYear())} at {orderDate.getHours()}:{(orderDate.getMinutes() < 10) ? "0" + orderDate.getMinutes() : orderDate.getMinutes()}
+                        {orderDate.getHours() < 12 ? "am" : "pm"}
                     </div>
+
+                    <div>Delivery Status</div>
+                    <div className="progress">
+                        <div className="progress-bar progress-bar-info progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="120" aria-valuenow={((Date.now() - orderDate) / 1000)}
+                            style={{
+                                width: `${((Date.now() - orderDate) / 1000) / 6}%`
+                            }}>
+                            {console.log(((Date.now() - orderDate) / 1000))}
+                            {console.log(((Date.now() - orderDate) / 1000) / 6)}
+                        </div>
+
+                    </div>
+                    
 
                     <ul>
                         {
                             console.log(uniqueDonuts)
                         }
                         {
-                        
-                        uniqueDonuts.map(donut => {
-                            return (
-                                <>
-                                    <OrderedDonut donut={donut} count={itemCounts[donut.donut_id]} />
-                                </>
-                            );
-                           
-                        })
-                    }
+
+                            uniqueDonuts.map(donut => {
+                                return (
+                                    <>
+                                        <OrderedDonut donut={donut} count={itemCounts[donut.donut_id]} />
+                                    </>
+                                );
+
+                            })
+                        }
                     </ul>
+
                 </div>
             </div>
 

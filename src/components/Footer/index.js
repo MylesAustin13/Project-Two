@@ -18,6 +18,9 @@ import {
 
 const Footer = () => {
   return (
+    <div className="fixed-bottom">
+
+    
     <FooterContainer>
       <FooterWrap>
         <SocialMedia>
@@ -49,6 +52,7 @@ const Footer = () => {
         </SocialMedia>
       </FooterWrap>
     </FooterContainer>
+    </div>
   );
 };
 
