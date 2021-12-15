@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+// export const ProductWrapperB = styled.div`
+//   /* width: 100vw; */
+//   min-height: 100vh;
+//   padding: 5rem calc((100vw - 1300px) / 2);
+//   background: ##ba7f09;
+//   color: #fff;
+// `;
+
 export const ProductsContainer = styled.div`
   /* width: 100vw; */
   min-height: 100vh;

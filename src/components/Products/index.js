@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Product from './Product';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './Products.css';
 
 
 const Products = ({ heading, data }) => {
@@ -30,10 +31,10 @@ const Products = ({ heading, data }) => {
                     console.error(error);
                 })
         }
-        else{
+        else {
             alert("You aren't logged in!");
             navigate("/");
-            
+
         }
     }, []);
 
@@ -58,38 +59,41 @@ const Products = ({ heading, data }) => {
     const onSubmitHandler = (event) => { //Change the donuts list
         event.preventDefault();
         axios.get(`http://localhost:8081/donuts/search/${searchText}`)
-        .then((resp) => {
-            console.log(resp.data);
-            setDonuts(resp.data);
-        })
-        .catch(error => console.error(error));
+            .then((resp) => {
+                console.log(resp.data);
+                setDonuts(resp.data);
+            })
+            .catch(error => console.error(error));
     }
     return (
         <ProductsContainer>
-            <button onClick={testDB}> TEST THE DB</button>
-            <button onClick={testState}> TEST THE STATE</button>
-            <ProductsHeading>{heading}</ProductsHeading>
-            <div className="wrapper">
-                {/* {console.log(myCart)} */}
-                <ul>
+            
 
-                    {myCart.length > 0 ? myCart.map(item => <li>{item.info.donut_name} x{item.count}</li>) : ""}
-                </ul>
-            </div>
-            <form onSubmit={onSubmitHandler}>
-                <input type="text" onChange={onChangeHandler} placeholder="Search..." name="searchbar" />
-                <button type="submit">Go!</button>
-            </form>
-            <ProductWrapper>
-                {donuts.map((product, index) => {
-                    return (
-                        <>
-                            <Product data={product} ind={index} />
+                <button onClick={testDB}> TEST THE DB</button>
+                <button onClick={testState}> TEST THE STATE</button>
+                {/* <ProductsHeading>{heading}</ProductsHeading> */}
+                <div className="wrapper">
+                    {/* {console.log(myCart)} */}
+                    <ul className='list-group'>
+
+                        {myCart.length > 0 ? myCart.map(item => <li className='list-group-item'>{item.info.donut_name} x{item.count}</li>) : ""}
+                    </ul>
+                </div>
+                <form onSubmit={onSubmitHandler}>
+                    <input type="text" onChange={onChangeHandler} placeholder="Search..." name="searchbar" />
+                    <button type="submit">Go!</button>
+                </form>
+                <ProductWrapper>
+                    {donuts.map((product, index) => {
+                        return (
+                            <>
+                                <Product data={product} ind={index} />
 
 
-                        </>);
-                })}
-            </ProductWrapper>
+                            </>);
+                    })}
+                </ProductWrapper>
+            
         </ProductsContainer>
     );
 };

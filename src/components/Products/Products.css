@@ -1,0 +1,14 @@
+.list-group{
+    /* background-color: #ba7f09; */
+    width: 14.2rem;
+    position:relative;
+    color: chocolate;
+    /* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bolder;
+    font-size:20px;
+    line-height:180%
+    
+
+
+}
