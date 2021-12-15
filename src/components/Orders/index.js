@@ -27,10 +27,10 @@ const Orders = () => {
                     console.error(error);
                 })
         }
-        else{
+        else {
             alert("You aren't logged in!");
             navigate("/");
-            
+
         }
     }, []);
 
@@ -51,16 +51,28 @@ const Orders = () => {
         <div>
             {/* <button onClick={testDB}> TEST THE DB</button>
             <button onClick={testState}> TEST THE STATE</button> */}
-            
-            <div className="bg-dark">
-                {orders.map((myorder) => {
-                    return (
-                        <>
-                            <Order data={myorder} />
+
+            <div className="bg-dark" style={{height: "100vh"}}>
+
+                {
+                    orders.length > 0 ?
+
+                        orders.map((myorder) => {
+                            return (
+                                <>
+                                    <Order data={myorder} />
 
 
-                        </>);
-                })}
+                                </>);
+                        })
+
+                        :
+
+                        <h1 className="text-light text-center"> You don't have any orders.</h1>
+                    
+
+                }
+
             </div>
         </div>
     );

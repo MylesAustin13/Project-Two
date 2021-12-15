@@ -81,11 +81,11 @@ const Products = ({ heading, data }) => {
                 <button type="submit">Go!</button>
                 
             </form>
-            <ProductWrapper className="row row-cols-3 bg-dark">
+            <ProductWrapper className="row row-cols-2 bg-dark">
                 {donuts.map((product, index) => {
                     return (
                         <>
-                            <Product data={product} ind={index} />
+                            <Product data={product} ind={index}/>
 
 
                         </>);

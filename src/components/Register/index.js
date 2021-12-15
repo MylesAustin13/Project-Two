@@ -50,7 +50,10 @@ const Register = (props) => {
                     alert("Account Created!");
                     navigate("/login");
                 })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error);
+                alert("Account ot created. This email is taken.");
+            })
         }
     };
 

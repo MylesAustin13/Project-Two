@@ -48,18 +48,18 @@ const Favorites = () => {
         })
     }
     return (
-        <div className="bg-light">
-            <button onClick={testDB}> TEST THE DB</button>
-            <button onClick={testState}> TEST THE STATE</button>
+        <div className="bg-dark d-flex justify-content-center">
+            {/* <button onClick={testDB}> TEST THE DB</button>
+            <button onClick={testState}> TEST THE STATE</button> */}
             
             <div>
                 {favorites.map((favorite) => {
                     return (
-                        <>
+                        <div className="">
                             <Product data={favorite} /> 
 
 
-                        </>);
+                        </div>);
                 })}
             </div>
         </div>
