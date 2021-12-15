@@ -23,11 +23,15 @@ public class DonutController {
         return donutService.getAllDonuts();
     }
 
-    @GetMapping("/donuts/{search}")
+    @GetMapping("/donuts/search/{search}")
     public List<Donut> getSpecificDonutsList(@PathVariable("search") String s){
         return donutService.getAllDonutsWithString(s);
     }
 
+    @GetMapping("/donuts/search")
+    public List<Donut> getAllDonutsSearch(){
+        return donutService.getAllDonuts();
+    }
     @GetMapping("/donuts/{id}")
     public Donut getSpecificDonutById(@PathVariable("id") long id){
         return donutService.getDonutById(id);

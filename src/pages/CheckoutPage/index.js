@@ -3,11 +3,13 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import "./checkoutform.css";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
 
     const myCart = useSelector(state => state.cartContent);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const calculateTotal = () => { //Get the price of the cart's contents
         let sum = 0;
@@ -32,22 +34,28 @@ const Checkout = () => {
         dispatch({
             type: "SubmitOrder"
         })
+        navigate("/myorders");
     }
 
 
 
     return (
         <>
-            <Navbar />
-            <div>
-                <div className="container">
-                    <div className="py-5 text-center">
-                        <img className="d-block mx-auto mb-4" src="https://www.pngkey.com/png/detail/13-132570_donut-comments-black-and-white-donut-svg.png" alt="" width="72" height="72" />
-                        <h2>Checkout form</h2>
-                        <p className="lead">Please fill out your details below.</p>
-                    </div>
+            {/* <Navbar /> */}
+            <div className="wrapper">
+                <div className="container bg-light">
                     <div className="row">
-                        <div className="col-md-4 order-md-2 mb-4">
+                        <div className="py-5 text-center">
+                            <img className="d-block mx-auto mb-4" src="https://www.pngkey.com/png/detail/13-132570_donut-comments-black-and-white-donut-svg.png" alt="" width="72" height="72" />
+                            <h2>Checkout form</h2>
+                            <p className="">Please fill out your details below.</p>
+                        </div>
+                    </div>
+
+                    <div className="row">
+
+                        <div className="col-md-4 mb-4">
+
                             <h4 className="d-flex justify-content-between align-items-center mb-3">
                                 <span className="text-muted">Your cart</span>
                                 <span className="badge badge-secondary badge-pill">{myCart.length}</span>
@@ -60,7 +68,7 @@ const Checkout = () => {
                                         <h6 className="my-0">{item.info.donut_name} x{item.count}</h6>
                                         <small className="text-muted">{item.info.donut_description}</small>
                                     </div>
-                                    <span className="text-muted">${item.info.donut_price * item.count}</span>
+                                    <span className="text-muted">${(item.info.donut_price * item.count).toFixed(2)}</span>
                                 </li>))
                                     :
                                     ""}
@@ -74,7 +82,7 @@ const Checkout = () => {
                                 </li> */}
                                 <li className="list-group-item d-flex justify-content-between">
                                     <span>Total (USD)</span>
-                                    <strong>${calculateTotal()}</strong>
+                                    <strong>${calculateTotal().toFixed(2)}</strong>
                                 </li>
                             </ul>
 
@@ -87,9 +95,9 @@ const Checkout = () => {
                                 </div>
                             </form> */}
                         </div>
-                        <div className="col-md-8 order-md-1">
+                        <div className="col-md-8 order-md-1 mb-4">
 
-                            <form className="needs-validation" onSubmit={onSubmitHandler} novalidate>
+                            <form className="needs-validation" onSubmit={onSubmitHandler} noValidate>
                                 {/* <h4 className="mb-3">Billing address</h4>
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
@@ -184,21 +192,21 @@ const Checkout = () => {
 
                                 <div className="d-block my-3">
                                     <div className="custom-control custom-radio">
-                                        <input id="credit" name="paymentMethod" type="radio" className="custom-control-input" checked required />
-                                        <label className="custom-control-label" for="credit">Credit card</label>
+                                        <input id="credit" name="paymentMethod" type="radio" className="custom-control-input" required />
+                                        <label className="custom-control-label" htmlFor="credit">Credit card</label>
                                     </div>
                                     <div className="custom-control custom-radio">
                                         <input id="debit" name="paymentMethod" type="radio" className="custom-control-input" required />
-                                        <label className="custom-control-label" for="debit">Debit card</label>
+                                        <label className="custom-control-label" htmlFor="debit">Debit card</label>
                                     </div>
                                     <div className="custom-control custom-radio">
                                         <input id="paypal" name="paymentMethod" type="radio" className="custom-control-input" required />
-                                        <label className="custom-control-label" for="paypal">Paypal</label>
+                                        <label className="custom-control-label" htmlFor="paypal">Paypal</label>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
-                                        <label for="cc-name">Name on card</label>
+                                        <label htmlFor="cc-name">Name on card</label>
                                         <input type="text" className="form-control" id="cc-name" placeholder="" required />
                                         <small className="text-muted">Full name as displayed on card</small>
                                         <div className="invalid-feedback">
@@ -206,7 +214,7 @@ const Checkout = () => {
                                         </div>
                                     </div>
                                     <div className="col-md-6 mb-3">
-                                        <label for="cc-number">Credit card number</label>
+                                        <label htmlFor="cc-number">Credit card number</label>
                                         <input type="text" className="form-control" id="cc-number" placeholder="" required />
                                         <div className="invalid-feedback">
                                             Credit card number is required
@@ -215,14 +223,14 @@ const Checkout = () => {
                                 </div>
                                 <div className="row">
                                     <div className="col-md-3 mb-3">
-                                        <label for="cc-expiration">Expiration</label>
+                                        <label htmlFor="cc-expiration">Expiration</label>
                                         <input type="text" className="form-control" id="cc-expiration" placeholder="" required />
                                         <div className="invalid-feedback">
                                             Expiration date required
                                         </div>
                                     </div>
                                     <div className="col-md-3 mb-3">
-                                        <label for="cc-expiration">CVV</label>
+                                        <label htmlFor="cc-expiration">CVV</label>
                                         <input type="text" className="form-control" id="cc-cvv" placeholder="" required />
                                         <div className="invalid-feedback">
                                             Security code required

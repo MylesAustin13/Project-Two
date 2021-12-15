@@ -2,10 +2,12 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Login = (props) => {
 
-
+    const navigate = useNavigate();
     const [values, setValues] = useState({
         cust_email: '',
         cust_password: ''
@@ -33,7 +35,7 @@ const Login = (props) => {
         console.log(values);
 
         if (errorsExist === false) { //If no errors
-            axios.post(`http://localhost:8080/customers/login/${values.cust_email}/${values.cust_password}`, values)
+            axios.post(`http://localhost:8081/customers/login/${values.cust_email}/${values.cust_password}`, values)
                 .then(resp => {
                     console.log(resp)
                     if (resp.data !== "") { // "" means the customer is null
@@ -41,7 +43,9 @@ const Login = (props) => {
                             type: "LogIn",
                             cust_details: resp.data
                         });
+                        navigate("/products");
                         setSubmitted();
+                        
                     }
                 })
                 .catch(error => console.error(error))
@@ -109,7 +113,7 @@ const Login = (props) => {
                     Login
                 </button>
                 <span className='form-input-login'>
-                    Not yet Signed up? <a href='/register'>Register</a>
+                    Not yet Signed up?<Link to="/register">Register</Link>
                 </span>
             </form>
         </div >

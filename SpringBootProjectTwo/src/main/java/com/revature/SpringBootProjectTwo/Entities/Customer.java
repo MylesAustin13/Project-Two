@@ -37,7 +37,7 @@ public class Customer {
     private String cust_password;
     private String cust_address;
 
-    @OneToMany(targetEntity = Customer.class, cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinColumn(name = "favorites")
     private List<Donut> favorites;
 

@@ -33,4 +33,9 @@ public class CustomerController {
     public Customer checkCustomerLogin(@PathVariable("email") String email, @PathVariable("password") String password){
         return custService.checkCustomerCredentials(email, password);
     }
+
+    @PutMapping("/customers")
+    public Customer updCustomer(@RequestBody Customer c){
+        return custService.updateCustomer(c);
+    }
 }

@@ -32,7 +32,7 @@ const Login = (props) => {
         console.log(values);
 
         if (errorsExist === false) { //If no errors
-            axios.post(`http://localhost:8080/customers/login/${values.cust_email}/${values.cust_password}`, values)
+            axios.post(`http://localhost:8081/customers/login/${values.cust_email}/${values.cust_password}`, values)
                 .then(resp => {
                     console.log(resp.data)
                     if (resp.data !== -1) {

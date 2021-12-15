@@ -6,12 +6,11 @@ import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import "./orderconfirm.css"
 
-const OrderConfirm = () => {
+const OrderConfirm = (props) => {
     return (
         <>
             {/* <Header /> */}
-            <Navbar />
-            <Sidebar />
+            {/* <Navbar /> */}
             <div>
                 <div className="card">
                     <div className="title">Thank You for Your Order</div>
@@ -49,11 +48,11 @@ const OrderConfirm = () => {
                         </ul>
                     </div>
                     <span>
-                        
-                            
-                                <Link className="btn btn-warning" to= "/products" role = "button">See more donuts</Link>
-                            
-                        
+
+
+                        <Link className="btn btn-warning" to="/products" role="button">See more donuts</Link>
+
+
                     </span>
                     <div className="footer">
                         <div className="row">
@@ -65,7 +64,7 @@ const OrderConfirm = () => {
             </div>
             <Footer />
 
-           
+
         </>
     );
 };

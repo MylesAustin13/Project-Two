@@ -19,6 +19,8 @@ import {
 const Footer = () => {
   return (
     <div className="fixed-bottom">
+
+    
     <FooterContainer>
       <FooterWrap>
         <SocialMedia>

@@ -2,6 +2,7 @@ import React from "react"
 import { useState, useEffect } from "react";
 import Footer from "../../components/Footer";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 // import Navbar from "../../components/Navbar";
 // import "./register.css"
 
@@ -11,6 +12,7 @@ const Register = (props) => {
     //     submitForm,
     //     validate
     //   );
+    const navigate = useNavigate();
     const [values, setValues] = useState({
         cust_first_name: '',
         cust_last_name: '',
@@ -41,10 +43,12 @@ const Register = (props) => {
         console.log(values);
         
         if(errorsExist == false){ //If no errors
-            axios.post("http://localhost:8080/customers", values)
+            axios.post("http://localhost:8081/customers", values)
             .then(resp => 
                 {
-                    console.log(resp.data)
+                    console.log(resp.data);
+                    alert("Account Created!");
+                    navigate("/login");
                 })
             .catch(error => console.error(error))
         }
@@ -178,7 +182,7 @@ const Register = (props) => {
                     Sign up
                 </button>
                 <span className='form-input-login'>
-                    Already have an account? Login <a href='/login'>here</a>
+                    Already have an account? <Link to='/login'>Login here!</Link>
                 </span>
             </form>
         </div >
