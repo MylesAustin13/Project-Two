@@ -18,7 +18,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="fixed-bottom">
+    <div className="">
 
     
     <FooterContainer>

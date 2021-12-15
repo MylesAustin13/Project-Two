@@ -13,7 +13,7 @@ const HeadJumbo = () => {
 
   return (
     <HeaderContainer>
-      <Navbar />
+      
 
       <HeaderContent>
         <HeaderItems>

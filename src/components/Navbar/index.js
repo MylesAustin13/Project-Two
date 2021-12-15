@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Cartbar from '../Cartbar';
 import Sidebar from '../Sidebar';
-import { Nav, NavLink, NavIcon, Bars, CartBars } from './NavbarElements';
+import { useSelector } from 'react-redux';
+import { Nav, NavLink, NavIcon, CartIcon, Bars, CartBars } from './NavbarElements';
 
 
 const Navbar = () => {
@@ -9,13 +10,14 @@ const Navbar = () => {
   const [isSideOpen, setIsSideOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+  const amIloggedIn = useSelector(state => state.loggedIn);
 
-    const toggleCart = () => {
-      setIsCartOpen(!isCartOpen);
-   }
-   const toggleSide = () => {
-     setIsSideOpen(!isSideOpen);
-   }
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  }
+  const toggleSide = () => {
+    setIsSideOpen(!isSideOpen);
+  }
 
   return (
     <>
@@ -25,10 +27,20 @@ const Navbar = () => {
           <p>Menu</p>
           <Bars />
         </NavIcon>
-        <NavIcon onClick={toggleCart}>
-           <CartBars />
-        </NavIcon>
-        <Cartbar isOpen={isCartOpen} toggle={toggleCart} />
+        {
+          amIloggedIn ?
+            <>
+              <CartIcon onClick={toggleCart}>
+                <p>My Cart</p>
+                <CartBars />
+              </CartIcon>
+              <Cartbar isOpen={isCartOpen} toggle={toggleCart} />
+            </>
+            :
+
+            ""
+        }
+
         <Sidebar isOpen={isSideOpen} toggle={toggleSide} />
       </Nav>
     </>

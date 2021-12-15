@@ -22,7 +22,7 @@ const Products = ({ heading, data }) => {
         //Get all the donuts
 
         if (amILoggedIn) {
-            axios.get("http://localhost:8081/donuts")
+            axios.get("http://localhost:8080/donuts")
                 .then((resp) => {
                     setDonuts(resp.data);
                 })
@@ -38,7 +38,7 @@ const Products = ({ heading, data }) => {
     }, []);
 
     const testDB = () => {
-        axios.get("http://localhost:8081/donuts")
+        axios.get("http://localhost:8080/donuts")
             .then((resp) => {
                 console.log(resp.data);
             })
@@ -57,7 +57,7 @@ const Products = ({ heading, data }) => {
     }
     const onSubmitHandler = (event) => { //Change the donuts list
         event.preventDefault();
-        axios.get(`http://localhost:8081/donuts/search/${searchText}`)
+        axios.get(`http://localhost:8080/donuts/search/${searchText}`)
         .then((resp) => {
             console.log(resp.data);
             setDonuts(resp.data);
@@ -66,21 +66,22 @@ const Products = ({ heading, data }) => {
     }
     return (
         <ProductsContainer>
-            <button onClick={testDB}> TEST THE DB</button>
-            <button onClick={testState}> TEST THE STATE</button>
+            {/* <button onClick={testDB}> TEST THE DB</button>
+            <button onClick={testState}> TEST THE STATE</button> */}
             <ProductsHeading>{heading}</ProductsHeading>
             <div className="wrapper">
                 {/* {console.log(myCart)} */}
-                <ul>
+                {/* <ul>
 
                     {myCart.length > 0 ? myCart.map(item => <li>{item.info.donut_name} x{item.count}</li>) : ""}
-                </ul>
+                </ul> */}
             </div>
-            <form onSubmit={onSubmitHandler}>
-                <input type="text" onChange={onChangeHandler} placeholder="Search..." name="searchbar" />
+            <form className="text-center mb-4" onSubmit={onSubmitHandler}>
+                <input className="w-50" type="text" onChange={onChangeHandler} placeholder="Find some donuts!" name="searchbar" />
                 <button type="submit">Go!</button>
+                
             </form>
-            <ProductWrapper>
+            <ProductWrapper className="row row-cols-3 bg-dark">
                 {donuts.map((product, index) => {
                     return (
                         <>

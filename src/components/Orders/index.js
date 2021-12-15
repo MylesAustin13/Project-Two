@@ -19,7 +19,7 @@ const Orders = () => {
         //Get all the donuts
 
         if (amILoggedIn) {
-            axios.get(`http://localhost:8081/orders/owner/${currentUser.cust_id}`)
+            axios.get(`http://localhost:8080/orders/owner/${currentUser.cust_id}`)
                 .then((resp) => {
                     setOrders(resp.data);
                 })
@@ -35,7 +35,7 @@ const Orders = () => {
     }, []);
 
     const testDB = () => {
-        axios.get("http://localhost:8081/donuts")
+        axios.get("http://localhost:8080/donuts")
             .then((resp) => {
                 console.log(resp.data);
             })
@@ -49,10 +49,10 @@ const Orders = () => {
     }
     return (
         <div>
-            <button onClick={testDB}> TEST THE DB</button>
-            <button onClick={testState}> TEST THE STATE</button>
+            {/* <button onClick={testDB}> TEST THE DB</button>
+            <button onClick={testState}> TEST THE STATE</button> */}
             
-            <div>
+            <div className="bg-dark">
                 {orders.map((myorder) => {
                     return (
                         <>

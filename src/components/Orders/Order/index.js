@@ -34,8 +34,8 @@ const Order = (props) => {
     return (
 
         <>
-            <div className="container overflow-auto">
-                <div className="card border-warning">
+            <div className="container">
+                <div className="card m-3 border-warning">
                     <div >
                         <div className="card-header bg-dark border-warning">
                             Order No. {props.data.order_id}
@@ -57,18 +57,18 @@ const Order = (props) => {
                             </div>
 
                         </div>
-
+                        <h2 className="text-center"> Donuts:</h2>
                         <ul className="list-group list-group-flush">
-                            {
+                            {/* {
                                 console.log(uniqueDonuts)
-                            }
+                            } */}
                             {
-
+                            
                                 uniqueDonuts.map(donut => {
                                     return (
                                         <>
+                                            
                                             <li class="list-group-item">
-                                                Item - Count | Description | Total
                                                 <OrderedDonut donut={donut} count={itemCounts[donut.donut_id]} />
                                             </li>
                                         </>

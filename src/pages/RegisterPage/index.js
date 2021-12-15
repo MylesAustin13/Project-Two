@@ -12,8 +12,8 @@ const RegisterForm = () => {
     setIsSubmitted(true);
   }
   return (
-    <>
-    <Navbar />
+    <div style={{height: "100vh"}}>
+    
       <div className='form-container'>
       {/* <span className='close-btn'>×</span> */}
         <span className='close-btn'>
@@ -28,7 +28,7 @@ const RegisterForm = () => {
           <RegisterSuccess />
         )}
       </div>
-    </>
+    </div>
   );
 };
 

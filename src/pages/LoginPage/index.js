@@ -11,8 +11,8 @@ const LoginForm = () => {
     setIsSubmitted(true);
   }
   return (
-    <>
-    <Navbar />
+    <div style={{height: "100vh"}}>
+    
       <div className='form-container'>
         <span className='close-btn'>×</span>
         <div className='form-content-left'>
@@ -24,7 +24,7 @@ const LoginForm = () => {
           <LoginSuccess />
         )}
       </div>
-    </>
+    </div>
   );
 };
 

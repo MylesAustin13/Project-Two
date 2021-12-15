@@ -43,7 +43,7 @@ const Register = (props) => {
         console.log(values);
         
         if(errorsExist == false){ //If no errors
-            axios.post("http://localhost:8081/customers", values)
+            axios.post("http://localhost:8080/customers", values)
             .then(resp => 
                 {
                     console.log(resp.data);
