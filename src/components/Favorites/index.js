@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Product from "../Products/Product";
+import './favorites.css';
 
 
 const Favorites = () => {
@@ -13,7 +14,7 @@ const Favorites = () => {
 
     const currentUser = useSelector(state => state.currentCust);
     const amILoggedIn = useSelector(state => state.loggedIn);
-    const favorites = useSelector(state => state.currentCust.favorites);  
+    const favorites = useSelector(state => state.currentCust.favorites);
 
     useEffect(() => {
         //Get all the donuts
@@ -27,10 +28,10 @@ const Favorites = () => {
             //         console.error(error);
             //     })
         }
-        else{
+        else {
             alert("You aren't logged in!");
             navigate("/");
-            
+
         }
     }, []);
 
@@ -48,21 +49,23 @@ const Favorites = () => {
         })
     }
     return (
-        <div className="bg-light">
+
+        <div className="bg-transparent">
             <button onClick={testDB}> TEST THE DB</button>
             <button onClick={testState}> TEST THE STATE</button>
-            
-            <div>
+
+            <div className="card text-white bg-dark">
                 {favorites.map((favorite) => {
                     return (
                         <>
-                            <Product data={favorite} /> 
 
+                            <Product data={favorite} />
 
                         </>);
                 })}
             </div>
         </div>
+
     );
 };
 
