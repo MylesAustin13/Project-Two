@@ -1,17 +1,23 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
-import { GiDonut } from 'react-icons/gi';
+import { CgMenu } from 'react-icons/cg';
+import {GiDonut} from 'react-icons/gi'
 
 export const Nav = styled.nav`
-  background: transparent;
+  background: #7f7053;
+  opacity: 0.8;
   height: 80px;
   display: flex;
   justify-content: center;
   font-weight: 700;
+  position: fixed; 
+  top: 0; 
+  width: 100%;   
 `;
 
 export const NavLink = styled(Link)`
   color: #fff;
+  
   font-size: 2rem;
   display: flex;
   align-items: center;
@@ -34,11 +40,28 @@ export const NavIcon = styled.div`
   color: #fff;
   p {
     transform: translate(-175%, 100%);
-    font-weight: bold;
+    font-weight: bolder;
+  }
+`;
+export const CartIcon = styled.div`
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  color: #fff;
+  p {
+    transform: translate(125%, 100%);
+    font-weight: bolder;
   }
 `;
 
-export const Bars = styled(GiDonut)`
+export const Bars = styled(CgMenu)`
   font-size: 2rem;
   transform: translate(-50%, -15%);
+`;
+
+export const CartBars = styled(CgMenu)`
+  font-size: 2rem;
+  transform: translate(50%, -15%);
 `;

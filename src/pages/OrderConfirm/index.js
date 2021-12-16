@@ -1,14 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
+import Sidebar from "../../components/Sidebar";
 import "./orderconfirm.css"
 
-const OrderConfirm = () => {
+const OrderConfirm = (props) => {
     return (
         <>
             {/* <Header /> */}
-            <Navbar />
+            {/* <Navbar /> */}
             <div>
                 <div className="card">
                     <div className="title">Thank You for Your Order</div>
@@ -45,6 +47,13 @@ const OrderConfirm = () => {
                             <li className="step0 text-right" id="step4">Delivered</li>
                         </ul>
                     </div>
+                    <span>
+
+
+                        <Link className="btn btn-warning" to="/products" role="button">See more donuts</Link>
+
+
+                    </span>
                     <div className="footer">
                         <div className="row">
                             <div className="col-2"><img className="img-fluid" src="https://www.pngkey.com/png/detail/13-132570_donut-comments-black-and-white-donut-svg.png" /></div>
@@ -54,8 +63,10 @@ const OrderConfirm = () => {
                 </div>
             </div>
             <Footer />
+
+
         </>
     );
 };
 
-export default OrderConfirm
+export default OrderConfirm;
