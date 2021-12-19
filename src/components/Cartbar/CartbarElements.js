@@ -18,7 +18,7 @@ export const CartbarContainer = styled.aside`
 `;
 
 export const CloseIcon = styled(FaTimes)`
-  color: #000;
+  color: #FFF;
 `;
 
 export const Icon = styled.div`
