@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../Navbar';
 import Sidebar from '../Sidebar';
-import { HeaderContainer, HeaderContent, HeaderItems, HeaderH1, HeaderP, HeaderBtn } from './HeaderElements';
+import { HeaderContainer, HeaderContent, HeaderItems, HeaderH1, HeaderH3, HeaderP, HeaderBtn } from './HeaderElements';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import Products from '../Products';
@@ -18,6 +18,7 @@ const HeadJumbo = () => {
       <HeaderContent>
         <HeaderItems>
           <HeaderH1>The Best Donuts Ever</HeaderH1>
+          <HeaderH3>Members Only</HeaderH3>
           <HeaderP>Ready in 0 time</HeaderP>
           {
             amILoggedIn ?
