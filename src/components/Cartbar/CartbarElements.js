@@ -4,7 +4,7 @@ import {FaTimes} from 'react-icons/fa';
 
 export const CartbarContainer = styled.aside`
   position: fixed;
-  z-index: 999;
+  z-index: 95;
   width: 350px;
   height: 100%;
   background: #ffc500;
@@ -18,7 +18,7 @@ export const CartbarContainer = styled.aside`
 `;
 
 export const CloseIcon = styled(FaTimes)`
-  color: #000;
+  color: #FFF;
 `;
 
 export const Icon = styled.div`

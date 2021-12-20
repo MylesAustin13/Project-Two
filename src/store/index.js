@@ -22,7 +22,7 @@ const donutReducer = (state = initialState, action) => {
             break;
         case "LogIn":
             //console.log(action);
-            
+
             return {
                 ...state,
                 loggedIn: true,
@@ -37,11 +37,11 @@ const donutReducer = (state = initialState, action) => {
         case "AddToFavorites":
 
             if (state.currentCust.favorites.filter(donut => donut.donut_id === action.donut.donut_id).length === 0) { //The donut to be favorited is NOT in the list
-                
+
                 let currentUser = state.currentCust;
                 currentUser.favorites.push(action.donut); //NOTE A: THIS MIGHT MODIFY STATE DIRECTLY, MAY NOT BE A COPY
 
-                
+
                 let newDonut = action.donut;
                 let currentUserFavorites = state.currentCust.favorites; //NOTE B: IF TRUE, DON'T PUSH AGAIN, WILL GET A DUPE IN THE LIST
                 //currentUserFavorites.push(action.donut); 
@@ -103,14 +103,14 @@ const donutReducer = (state = initialState, action) => {
             let cartArray = state.cartContent;
             if (state.cartContent.filter(item => item.info.donut_id === action.obj.info.donut_id).length > 0) { //Item is in the list
                 //console.log("Im here");
-                
+
                 //console.log(cartArray);
                 //console.log(cartArray.findIndex((item) => item.info.donut_id === action.obj.info.donut_id));
                 //console.log(cartArray[cartArray.findIndex((item) => item.info.donut_id === action.obj.info.donut_id)]);
                 //console.log(action.obj.count);
                 cartArray[cartArray.findIndex((item) => item.info.donut_id === action.obj.info.donut_id)].count = action.obj.count;
                 console.log(cartArray[cartArray.findIndex((item) => item.info.donut_id === action.obj.info.donut_id)]);
-                
+
             }
             return {
                 ...state,
@@ -150,7 +150,19 @@ const donutReducer = (state = initialState, action) => {
                 ...state,
                 cartContent: []
 
-            } //Maybe push to database here? Depends on Spring, I guess
+            }
+        case "UpdateCustomer":
+            console.log("Updating!!!!");
+            axios.get(`http://localhost:8080/customers/${state.currentCust.cust_id}`)
+                .then(resp => {
+                    console.log(resp);
+                    return {
+                        ...state,
+                        currentCust: resp.data
+                    }
+                })
+                .catch(error => console.error(error));
+            break;
         default:
             break;
     }

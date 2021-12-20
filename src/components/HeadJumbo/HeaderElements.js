@@ -46,6 +46,14 @@ export const HeaderP = styled.p`
   margin-bottom: 2rem;
 `;
 
+export const HeaderH3 = styled.h3`
+  font-family: 'Eczar', serif;
+  font-size: clamp(1.5rem, 10vw, 2.5rem);
+  margin-bottom: 1rem;
+  box-shadow: 3px 5px #7f7053;
+  letter-spacing: 1px;
+`;
+
 export const HeaderBtn = styled.button`
   font-size: 1.4rem;
   padding: 1rem 4rem;

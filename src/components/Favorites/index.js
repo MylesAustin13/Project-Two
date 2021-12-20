@@ -48,19 +48,26 @@ const Favorites = () => {
         })
     }
     return (
-        <div className="bg-dark d-flex justify-content-center">
+        <div >
             {/* <button onClick={testDB}> TEST THE DB</button>
             <button onClick={testState}> TEST THE STATE</button> */}
             
-            <div>
-                {favorites.map((favorite) => {
+            <div className="bg-dark" style={{ height: "100vh" }}>
+                {
+                favorites.length > 0 ?
+                
+                favorites.map((favorite) => {
                     return (
                         <div className="">
-                            <Product data={favorite} /> 
+                            <Product data={favorite}/> 
 
 
                         </div>);
-                })}
+                })
+                :
+                <h1 className="text-light text-center"> You don't have any favorites.</h1>
+
+            }
             </div>
         </div>
     );
