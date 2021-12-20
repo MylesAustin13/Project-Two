@@ -20,7 +20,7 @@ const Order = (props) => {
         });
         //console.log(props.data.donuts_ordered.find( ({donut_id}) => donut_id === 21))
         for (let id in counts) { //For each donut id in the list
-            console.log(typeof (id));
+            //console.log(typeof (id));
             uniqueItems.push(props.data.donuts_ordered.find(({ donut_id }) => donut_id == id)); //Add it to the list
         }
 
@@ -41,7 +41,7 @@ const Order = (props) => {
                             Order No. {props.data.order_id}
                         </div>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item">Sent to {props.data.buyer.cust_address}</li>
+                            <li className="list-group-item">Sent to {props.data.buyer.cust_first_name} {props.data.buyer.cust_last_name}</li>
                             <li className="list-group-item">Purchased on {(orderDate.getMonth() + 1)}/{(orderDate.getDate())}/{(orderDate.getFullYear())} at {orderDate.getHours()}:{(orderDate.getMinutes() < 10) ? "0" + orderDate.getMinutes() : orderDate.getMinutes()}
                                 {orderDate.getHours() < 12 ? "am" : "pm"}
                             </li>
@@ -52,8 +52,8 @@ const Order = (props) => {
                                 style={{
                                     width: `${((Date.now() - orderDate) / 1000) / 6}%`
                                 }}>
-                                {console.log(((Date.now() - orderDate) / 1000))}
-                                {console.log(((Date.now() - orderDate) / 1000) / 6)}
+                                {/* {console.log(((Date.now() - orderDate) / 1000))}
+                                {console.log(((Date.now() - orderDate) / 1000) / 6)} */}
                             </div>
 
                         </div>

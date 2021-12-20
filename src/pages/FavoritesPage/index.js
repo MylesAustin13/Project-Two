@@ -4,7 +4,7 @@ import Favorites from '../../components/Favorites';
 const FavoritesPage = () => {
 
     return (
-        <div  style={{height: "100vh"}}>
+        <div  style={{height: "100vh", position:"relative", zIndex: 1}}>
             <div className='form-container'  style={{height: "80%", width: "60%"}}>
                 
                 <div className='form-content-right'>

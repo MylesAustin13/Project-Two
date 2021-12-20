@@ -14,7 +14,6 @@ const LoginForm = () => {
     <div style={{height: "100vh"}}>
     
       <div className='form-container'>
-        <span className='close-btn'>×</span>
         <div className='form-content-right'>
           <img className='form-img'src='https://images.vexels.com/media/users/3/190524/isolated/lists/4c56dddeffbb64257bb0ab0ffc334e1a-kawaii-donut.png' alt='donut' />
         </div>
