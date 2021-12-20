@@ -49,7 +49,7 @@ const donutReducer = (state = initialState, action) => {
                 //console.log(currentUserFavorites);
                 //console.log(state.currentCust);
                 //console.log(currentUser);
-                axios.put("http://localhost:8081/customers", currentUser)
+                axios.put("http://localhost:8080/customers", currentUser)
                     .then(resp => console.log(resp))
                     .catch(error => console.error(error));
                 return {
@@ -68,7 +68,7 @@ const donutReducer = (state = initialState, action) => {
             //console.log(currentCustomer);
             //let currentCustomerFavorites = state.currentCust.favorites;
             // currentUserFavorites = 
-            axios.put("http://localhost:8081/customers", currentCustomer)
+            axios.put("http://localhost:8080/customers", currentCustomer)
                 .then(resp => console.log(resp))
                 .catch(error => console.error(error));
             return {
@@ -99,7 +99,23 @@ const donutReducer = (state = initialState, action) => {
                     cartContent: [...state.cartContent, action.obj]
                 };
             }
-
+        case "ApplyToCart":
+            let cartArray = state.cartContent;
+            if (state.cartContent.filter(item => item.info.donut_id === action.obj.info.donut_id).length > 0) { //Item is in the list
+                //console.log("Im here");
+                
+                //console.log(cartArray);
+                //console.log(cartArray.findIndex((item) => item.info.donut_id === action.obj.info.donut_id));
+                //console.log(cartArray[cartArray.findIndex((item) => item.info.donut_id === action.obj.info.donut_id)]);
+                //console.log(action.obj.count);
+                cartArray[cartArray.findIndex((item) => item.info.donut_id === action.obj.info.donut_id)].count = action.obj.count;
+                console.log(cartArray[cartArray.findIndex((item) => item.info.donut_id === action.obj.info.donut_id)]);
+                
+            }
+            return {
+                ...state,
+                cartContent: [...cartArray]
+            };
         case "RemoveFromCart":
             // console.log(state);
             //  console.log(action.obj);
@@ -127,7 +143,7 @@ const donutReducer = (state = initialState, action) => {
                 }
             }
             console.log(custOrder);
-            axios.post("http://localhost:8081/orders", custOrder)
+            axios.post("http://localhost:8080/orders", custOrder)
                 .then(resp => console.log(resp))
                 .catch(error => console.error(error));
             return {

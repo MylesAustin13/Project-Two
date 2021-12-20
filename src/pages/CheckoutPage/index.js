@@ -34,15 +34,17 @@ const Checkout = () => {
         dispatch({
             type: "SubmitOrder"
         })
+        
         navigate("/myorders");
+        window.location.reload();
     }
 
 
 
     return (
         <>
-            {/* <Navbar /> */}
-            <div className="wrapper">
+            
+            <div className="wrapper mt-5" style={{height: "100vh"}}>
                 <div className="container bg-light">
                     <div className="row">
                         <div className="py-5 text-center">
@@ -245,7 +247,7 @@ const Checkout = () => {
 
                 </div>
             </div>
-             <Footer /> 
+             
         </>
     )
 }

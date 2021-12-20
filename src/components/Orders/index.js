@@ -19,7 +19,7 @@ const Orders = () => {
         //Get all the donuts
 
         if (amILoggedIn) {
-            axios.get(`http://localhost:8081/orders/owner/${currentUser.cust_id}`)
+            axios.get(`http://localhost:8080/orders/owner/${currentUser.cust_id}`)
                 .then((resp) => {
                     setOrders(resp.data);
                 })
@@ -27,15 +27,15 @@ const Orders = () => {
                     console.error(error);
                 })
         }
-        else{
+        else {
             alert("You aren't logged in!");
             navigate("/");
-            
+
         }
     }, []);
 
     const testDB = () => {
-        axios.get("http://localhost:8081/donuts")
+        axios.get("http://localhost:8080/donuts")
             .then((resp) => {
                 console.log(resp.data);
             })
@@ -49,18 +49,30 @@ const Orders = () => {
     }
     return (
         <div>
-            <button onClick={testDB}> TEST THE DB</button>
-            <button onClick={testState}> TEST THE STATE</button>
-            
-            <div>
-                {orders.map((myorder) => {
-                    return (
-                        <>
-                            <Order data={myorder} />
+            {/* <button onClick={testDB}> TEST THE DB</button>
+            <button onClick={testState}> TEST THE STATE</button> */}
+
+            <div className="bg-dark" style={{height: "100vh"}}>
+
+                {
+                    orders.length > 0 ?
+
+                        orders.map((myorder) => {
+                            return (
+                                <>
+                                    <Order data={myorder} />
 
 
-                        </>);
-                })}
+                                </>);
+                        })
+
+                        :
+
+                        <h1 className="text-light text-center"> You don't have any orders.</h1>
+                    
+
+                }
+
             </div>
         </div>
     );

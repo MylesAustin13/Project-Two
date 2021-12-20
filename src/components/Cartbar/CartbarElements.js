@@ -5,7 +5,6 @@ import {FaTimes} from 'react-icons/fa';
 export const CartbarContainer = styled.aside`
   position: fixed;
   z-index: 999;
-  overflow-y: scroll;
   width: 350px;
   height: 100%;
   background: #ffc500;

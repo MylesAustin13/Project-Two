@@ -35,7 +35,7 @@ const Login = (props) => {
         console.log(values);
 
         if (errorsExist === false) { //If no errors
-            axios.post(`http://localhost:8081/customers/login/${values.cust_email}/${values.cust_password}`, values)
+            axios.post(`http://localhost:8080/customers/login/${values.cust_email}/${values.cust_password}`, values)
                 .then(resp => {
                     console.log(resp)
                     if (resp.data !== "") { // "" means the customer is null
@@ -113,7 +113,7 @@ const Login = (props) => {
                     Login
                 </button>
                 <span className='form-input-login'>
-                    Not yet Signed up?<Link to="/register">Register</Link>
+                    Not yet Signed up?<Link to="/register"> Register</Link>
                 </span>
             </form>
         </div >

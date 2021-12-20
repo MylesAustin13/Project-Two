@@ -23,7 +23,7 @@ const Products = ({ heading, data }) => {
         //Get all the donuts
 
         if (amILoggedIn) {
-            axios.get("http://localhost:8081/donuts")
+            axios.get("http://localhost:8080/donuts")
                 .then((resp) => {
                     setDonuts(resp.data);
                 })
@@ -39,7 +39,7 @@ const Products = ({ heading, data }) => {
     }, []);
 
     const testDB = () => {
-        axios.get("http://localhost:8081/donuts")
+        axios.get("http://localhost:8080/donuts")
             .then((resp) => {
                 console.log(resp.data);
             })
@@ -58,42 +58,40 @@ const Products = ({ heading, data }) => {
     }
     const onSubmitHandler = (event) => { //Change the donuts list
         event.preventDefault();
-        axios.get(`http://localhost:8081/donuts/search/${searchText}`)
-            .then((resp) => {
-                console.log(resp.data);
-                setDonuts(resp.data);
-            })
-            .catch(error => console.error(error));
+        axios.get(`http://localhost:8080/donuts/search/${searchText}`)
+        .then((resp) => {
+            console.log(resp.data);
+            setDonuts(resp.data);
+        })
+        .catch(error => console.error(error));
     }
     return (
         <ProductsContainer>
-            
+            {/* <button onClick={testDB}> TEST THE DB</button>
+            <button onClick={testState}> TEST THE STATE</button> */}
+            <ProductsHeading>{heading}</ProductsHeading>
+            <div className="wrapper">
+                {/* {console.log(myCart)} */}
+                {/* <ul>
 
-                <button onClick={testDB}> TEST THE DB</button>
-                <button onClick={testState}> TEST THE STATE</button>
-                {/* <ProductsHeading>{heading}</ProductsHeading> */}
-                <div className="wrapper">
-                    {/* {console.log(myCart)} */}
-                    <ul className='list-group'>
-
-                        {myCart.length > 0 ? myCart.map(item => <li className='list-group-item'>{item.info.donut_name} x{item.count}</li>) : ""}
-                    </ul>
-                </div>
-                <form onSubmit={onSubmitHandler}>
-                    <input type="text" onChange={onChangeHandler} placeholder="Search..." name="searchbar" />
-                    <button type="submit">Go!</button>
-                </form>
-                <ProductWrapper>
-                    {donuts.map((product, index) => {
-                        return (
-                            <>
-                                <Product data={product} ind={index} />
+                    {myCart.length > 0 ? myCart.map(item => <li>{item.info.donut_name} x{item.count}</li>) : ""}
+                </ul> */}
+            </div>
+            <form className="text-center mb-4" onSubmit={onSubmitHandler}>
+                <input className="w-50" type="text" onChange={onChangeHandler} placeholder="Find some donuts!" name="searchbar" />
+                <button type="submit">Go!</button>
+                
+            </form>
+            <ProductWrapper className="row row-cols-2 bg-dark">
+                {donuts.map((product, index) => {
+                    return (
+                        <>
+                            <Product data={product} ind={index}/>
 
 
-                            </>);
-                    })}
-                </ProductWrapper>
-            
+                        </>);
+                })}
+            </ProductWrapper>
         </ProductsContainer>
     );
 };

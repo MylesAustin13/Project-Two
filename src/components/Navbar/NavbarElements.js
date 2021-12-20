@@ -43,13 +43,25 @@ export const NavIcon = styled.div`
     font-weight: bolder;
   }
 `;
+export const CartIcon = styled.div`
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  color: #fff;
+  p {
+    transform: translate(125%, 100%);
+    font-weight: bolder;
+  }
+`;
 
 export const Bars = styled(CgMenu)`
   font-size: 2rem;
   transform: translate(-50%, -15%);
 `;
 
-export const CartBars = styled(GiDonut)`
+export const CartBars = styled(CgMenu)`
   font-size: 2rem;
-  transform: translate(-100%, -15%);
+  transform: translate(50%, -15%);
 `;

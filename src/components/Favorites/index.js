@@ -20,7 +20,7 @@ const Favorites = () => {
         //Get all the donuts
 
         if (amILoggedIn) {
-            // axios.get(`http://localhost:8081/orders/owner/${currentUser.cust_id}`)
+            // axios.get(`http://localhost:8080/orders/owner/${currentUser.cust_id}`)
             //     .then((resp) => {
             //         setOrders(resp.data);
             //     })
@@ -36,7 +36,7 @@ const Favorites = () => {
     }, []);
 
     const testDB = () => {
-        axios.get("http://localhost:8081/donuts")
+        axios.get("http://localhost:8080/donuts")
             .then((resp) => {
                 console.log(resp.data);
             })
@@ -49,19 +49,19 @@ const Favorites = () => {
         })
     }
     return (
-
-        <div className="bg-transparent">
-            <button onClick={testDB}> TEST THE DB</button>
-            <button onClick={testState}> TEST THE STATE</button>
-
-            <div className="card text-white bg-dark">
+        <div className="bg-dark d-flex justify-content-center">
+            {/* <button onClick={testDB}> TEST THE DB</button>
+            <button onClick={testState}> TEST THE STATE</button> */}
+            
+            <div>
                 {favorites.map((favorite) => {
                     return (
-                        <>
+                        <div className="">
+                            <Product data={favorite} /> 
 
                             <Product data={favorite} />
 
-                        </>);
+                        </div>);
                 })}
             </div>
         </div>

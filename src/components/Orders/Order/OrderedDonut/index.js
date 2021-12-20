@@ -11,7 +11,7 @@ const OrderedDonut = (props) => {
 
                 <ul class="list-group list-group-flush">
                 <li class="list-group-item list-group-item-dark">{props.donut.donut_name} x{props.count}</li>
-                <li class="list-group-item list-group-item-dark">{props.donut.donut_description}</li>
+                {/* <li class="list-group-item list-group-item-warning">{props.donut.donut_description}</li> */}
                 <li class="list-group-item list-group-item-warning">${(props.donut.donut_price * props.count).toFixed(2)}</li>
                 </ul>
 

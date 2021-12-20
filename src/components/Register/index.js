@@ -43,14 +43,17 @@ const Register = (props) => {
         console.log(values);
         
         if(errorsExist == false){ //If no errors
-            axios.post("http://localhost:8081/customers", values)
+            axios.post("http://localhost:8080/customers", values)
             .then(resp => 
                 {
                     console.log(resp.data);
                     alert("Account Created!");
                     navigate("/login");
                 })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error);
+                alert("Account ot created. This email is taken.");
+            })
         }
     };
 
