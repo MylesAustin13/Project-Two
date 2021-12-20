@@ -57,7 +57,7 @@ const Favorites = () => {
                 {favorites.map((favorite) => {
                     return (
                         <div className="">
-                            <Product data={favorite} /> 
+                            <Product data={favorite}/> 
 
                             <Product data={favorite} />
 

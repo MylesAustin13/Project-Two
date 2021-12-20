@@ -76,7 +76,7 @@ const Product = (props) => {
 
     return (
         <div className="border border-5 border-light m-auto p-auto justify-content-center d-flex" style={{height: "50rem"}}>
-            <ProductCard className="bg-dark text-light" key={props.ind}>
+            <ProductCard className="bg-dark text-light text-center w-100" key={props.ind}>
                 <ProductImg src={props.data.donut_img} />
                 <div className="row w-100">
                     <ProductName className="col-md-8 mt-5">{props.data.donut_name}</ProductName>

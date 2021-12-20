@@ -14,6 +14,7 @@ import OrderConfirm from "./pages/OrderConfirm";
 import Product from "./components/Products/Product";
 import OrdersPage from "./pages/OrdersPage";
 import FavoritesPage from "./pages/FavoritesPage";
+import UpdateForm from "./pages/UpdateProfilePage";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/checkout" element={<Checkout/>} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
+        <Route path="/update" element={<UpdateForm />} />
         <Route path="/orderconfirmation" element={<OrderConfirm/>} />
         <Route path="/products" element={<Products />} />
         <Route path="/myorders" element={<OrdersPage />} />
