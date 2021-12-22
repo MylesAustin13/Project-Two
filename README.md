@@ -9,17 +9,33 @@ A webapp serving as an interface for a mock donut delivery service.
 * React
 * Spring Boot
 * Java
+* JavaScript
+* BootStrap / CSS
+* JUnit
 
 ## Features
 
-List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+### Customers can...
+* Log in/out
+* Register for a new account
+* Navigate to different pages using a toggleable sidebar
+* View donuts to purchase
+* Search for donuts (filtering)
+* Add/remove donuts to/from a cart
+  * Cart is in a sidebar, visible from any page when logged in
+  * Crt displays the current subtotal
+  * Cart persists on refresh/tab close
+* Add/remove donuts to/from a list of favorites
+  * Favorited items can be added to the cart 
+* Checkout with their current cart
+  * Subtotal and items are visible to the customer 
+* Change the address they assigned when registering
+* View their previous donut orders
+ * Filter these orders based on the date/time.
+ * Orders display a progress bar that fills over a few minutes, to emulate the baking/delivery process. 
 
 To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+* Clear cart when logging out (When logging into another account, the cart from the first carries over)
 
 
 ## Usage
@@ -39,6 +55,3 @@ To-do list:
 * Myles Austin
 * Lucas Uzoka
 
-## License
-
-This project uses the following license: [<license_name>](<link>).
